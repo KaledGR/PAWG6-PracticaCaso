@@ -2,21 +2,32 @@
 @model IEnumerable<AP.Models.DTOs.TaskDTO>
 
 @{
-    ViewData["Title"] = "Lista de Tareas";
+    ViewData["Title"] = "Gestión de Tareas";
+    var totalTasks = Model.Count();
+    var completedTasks = Model.Count(t => t.Status == "Completada");
+    var inProgressTasks = Model.Count(t => t.Status == "En Progreso");
+    var pendingTasks = Model.Count(t => t.Status == "Pendiente");
 }
 
 <div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2>@ViewData["Title"]</h2>
-        <a asp-action="Create" class="btn btn-primary">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4 page-header">
+        <div>
+            <h1 class="page-title">
+                <i class="bi bi-clipboard-check"></i> Mis Tareas
+            </h1>
+            <p class="page-subtitle">Administra y organiza todas tus tareas</p>
+        </div>
+        <button type="button" class="btn btn-modern btn-gradient-primary" data-bs-toggle="modal" data-bs-target="#createModal">
             <i class="bi bi-plus-circle"></i> Nueva Tarea
-        </a>
+        </button>
     </div>
 
+    <!-- Alertas -->
     @if (TempData["Success"] != null)
     {
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            @TempData["Success"]
+            <i class="bi bi-check-circle-fill"></i> @TempData["Success"]
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
     }
@@ -24,64 +35,508 @@
     @if (TempData["Error"] != null)
     {
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            @TempData["Error"]
+            <i class="bi bi-exclamation-triangle-fill"></i> @TempData["Error"]
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
     }
 
-    <div class="card">
-        <div class="card-body">
+    <!-- Estadísticas -->
+    <div class="stats-container">
+        <div class="stat-card">
+            <div class="stat-icon primary">
+                <i class="bi bi-list-task"></i>
+            </div>
+            <div class="stat-value">@totalTasks</div>
+            <div class="stat-label">Total de Tareas</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon success">
+                <i class="bi bi-check-circle"></i>
+            </div>
+            <div class="stat-value">@completedTasks</div>
+            <div class="stat-label">Completadas</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon warning">
+                <i class="bi bi-hourglass-split"></i>
+            </div>
+            <div class="stat-value">@inProgressTasks</div>
+            <div class="stat-label">En Progreso</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon info">
+                <i class="bi bi-clock"></i>
+            </div>
+            <div class="stat-value">@pendingTasks</div>
+            <div class="stat-label">Pendientes</div>
+        </div>
+    </div>
+
+    <!-- Barra de búsqueda y filtros -->
+    <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-3">
+        <div class="search-container">
+            <i class="bi bi-search search-icon"></i>
+            <input type="text" class="form-control search-input" id="searchInput" placeholder="Buscar tareas...">
+        </div>
+
+        <div class="d-flex gap-2">
+            <button class="btn btn-outline-secondary btn-modern filter-btn active" data-filter="all">
+                <i class="bi bi-list"></i> Todas
+            </button>
+            <button class="btn btn-outline-secondary btn-modern filter-btn" data-filter="Pendiente">
+                <i class="bi bi-clock"></i> Pendientes
+            </button>
+            <button class="btn btn-outline-success btn-modern filter-btn" data-filter="Completada">
+                <i class="bi bi-check-circle"></i> Completadas
+            </button>
+            <button class="btn btn-outline-warning btn-modern filter-btn" data-filter="En Progreso">
+                <i class="bi bi-hourglass"></i> En Progreso
+            </button>
+        </div>
+    </div>
+
+    <!-- Tabla de Tareas -->
+    <div class="tasks-card">
+        <div class="card-body p-0">
             @if (Model.Any())
             {
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Estado</th>
-                            <th>Fecha de Vencimiento</th>
-                            <th>Fecha de Creación</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var task in Model)
-                        {
+                <div class="table-responsive">
+                    <table class="table table-modern" id="tasksTable">
+                        <thead>
                             <tr>
-                                <td>@task.Id</td>
-                                <td>@task.Name</td>
-                                <td>
-                                    <span class="badge bg-@(task.Status == "Completada" ? "success" : task.Status == "En Progreso" ? "warning" : "secondary")">
-                                        @task.Status
-                                    </span>
-                                </td>
-                                <td>@(task.DueDate?.ToString("dd/MM/yyyy") ?? "Sin fecha")</td>
-                                <td>@task.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
-                                <td>
-                                    <div class="btn-group" role="group">
-                                        <a asp-action="Details" asp-route-id="@task.Id" class="btn btn-sm btn-info" title="Ver Detalles">
-                                            <i class="bi bi-eye"></i>
-                                        </a>
-                                        <a asp-action="Edit" asp-route-id="@task.Id" class="btn btn-sm btn-warning" title="Editar">
-                                            <i class="bi bi-pencil"></i>
-                                        </a>
-                                        <a asp-action="Delete" asp-route-id="@task.Id" class="btn btn-sm btn-danger" title="Eliminar">
-                                            <i class="bi bi-trash"></i>
-                                        </a>
-                                    </div>
-                                </td>
+                                <th width="60">ID</th>
+                                <th>Nombre</th>
+                                <th width="150">Estado</th>
+                                <th width="150">Vencimiento</th>
+                                <th width="150">Creación</th>
+                                <th width="140" class="text-center">Acciones</th>
                             </tr>
-                        }
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody id="tasksTableBody">
+                            @foreach (var task in Model)
+                            {
+                                var isOverdue = task.DueDate.HasValue && task.DueDate.Value < DateTime.Now && task.Status != "Completada";
+
+                                <tr data-task-status="@task.Status" class="task-row">
+                                    <td class="fw-bold text-muted">#@task.Id</td>
+                                    <td class="task-name">
+                                        <div class="d-flex align-items-center">
+                                            <div>
+                                                <div class="fw-semibold">@task.Name</div>
+                                                @if (!string.IsNullOrEmpty(task.Description))
+                                                {
+                                                    <small class="text-muted">@(task.Description.Length > 50 ? task.Description.Substring(0, 50) + "..." : task.Description)</small>
+                                                }
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        @if (task.Status == "Completada")
+                                        {
+                                            <span class="badge badge-modern bg-success">
+                                                <i class="bi bi-check-circle-fill"></i> Completada
+                                            </span>
+                                        }
+                                        else if (task.Status == "En Progreso")
+                                        {
+                                            <span class="badge badge-modern bg-warning">
+                                                <i class="bi bi-hourglass-split"></i> En Progreso
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge badge-modern bg-secondary">
+                                                <i class="bi bi-clock"></i> Pendiente
+                                            </span>
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (task.DueDate.HasValue)
+                                        {
+                                            <div class="@(isOverdue ? "text-danger fw-bold" : "")">
+                                                @if (isOverdue)
+                                                {
+                                                    <i class="bi bi-exclamation-triangle-fill"></i>
+                                                }
+                                                @task.DueDate.Value.ToString("dd/MM/yyyy")
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <span class="text-muted">Sin fecha</span>
+                                        }
+                                    </td>
+                                    <td class="text-muted">
+                                        <small>@task.CreatedAt.ToString("dd/MM/yyyy")</small>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex gap-2 justify-content-center">
+                                            <button type="button" class="btn btn-action btn-info"
+                                                    onclick="showDetails(@task.Id, '@Html.Raw(task.Name.Replace("'", "\\'"))', '@Html.Raw((task.Description ?? "Sin descripción").Replace("'", "\\'"))', '@task.Status', '@(task.DueDate?.ToString("dd/MM/yyyy") ?? "Sin fecha")', '@task.CreatedAt.ToString("dd/MM/yyyy HH:mm")')"
+                                                    data-bs-toggle="modal" data-bs-target="#detailsModal"
+                                                    data-bs-toggle-tooltip="tooltip" title="Ver Detalles">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-action btn-warning"
+                                                    onclick="loadEditForm(@task.Id)"
+                                                    data-bs-toggle-tooltip="tooltip" title="Editar">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-action btn-danger"
+                                                    onclick="showDeleteConfirm(@task.Id, '@Html.Raw(task.Name.Replace("'", "\\'"))', '@Html.Raw((task.Description ?? "Sin descripción").Replace("'", "\\'"))', '@task.Status', '@(task.DueDate?.ToString("dd/MM/yyyy") ?? "Sin fecha")', '@task.CreatedAt.ToString("dd/MM/yyyy HH:mm")')"
+                                                    data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                                    data-bs-toggle-tooltip="tooltip" title="Eliminar">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
             }
             else
             {
-                <div class="alert alert-info text-center">
-                    <i class="bi bi-info-circle"></i> No hay tareas registradas.
-                    <a asp-action="Create" class="alert-link">Crear la primera tarea</a>
+                <div class="empty-state">
+                    <div class="empty-state-icon">
+                        <i class="bi bi-inbox"></i>
+                    </div>
+                    <h3>No hay tareas registradas</h3>
+                    <p>Comienza a organizar tu trabajo creando tu primera tarea</p>
+                    <button type="button" class="btn btn-modern btn-gradient-primary" data-bs-toggle="modal" data-bs-target="#createModal">
+                        <i class="bi bi-plus-circle"></i> Crear Primera Tarea
+                    </button>
                 </div>
             }
         </div>
     </div>
 </div>
+
+<!-- Modal: Crear Tarea -->
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="createModalLabel">
+                    <i class="bi bi-plus-circle"></i> Crear Nueva Tarea
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="Create" method="post">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="createName" class="form-label">
+                            <i class="bi bi-card-text"></i> Nombre de la Tarea
+                        </label>
+                        <input type="text" class="form-control" id="createName" name="Name"
+                               placeholder="Ej: Completar el proyecto" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="createDescription" class="form-label">
+                            <i class="bi bi-file-text"></i> Descripción
+                        </label>
+                        <textarea class="form-control" id="createDescription" name="Description" rows="4"
+                                  placeholder="Describe los detalles de la tarea..."></textarea>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="createStatus" class="form-label">
+                                <i class="bi bi-flag"></i> Estado
+                            </label>
+                            <select class="form-select" id="createStatus" name="Status" required>
+                                <option value="Pendiente" selected>🕐 Pendiente</option>
+                                <option value="En Progreso">⏳ En Progreso</option>
+                                <option value="Completada">✅ Completada</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="createDueDate" class="form-label">
+                                <i class="bi bi-calendar-event"></i> Fecha de Vencimiento
+                            </label>
+                            <input type="date" class="form-control" id="createDueDate" name="DueDate" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-modern" data-bs-dismiss="modal">
+                        <i class="bi bi-x-circle"></i> Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-modern btn-gradient-primary">
+                        <i class="bi bi-check-circle"></i> Crear Tarea
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Editar Tarea -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <h5 class="modal-title text-white" id="editModalLabel">
+                    <i class="bi bi-pencil"></i> Editar Tarea
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="Edit" method="post" id="editForm">
+                <input type="hidden" id="editId" name="Id" />
+                <input type="hidden" id="editCreatedAt" name="CreatedAt" />
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="editName" class="form-label">
+                            <i class="bi bi-card-text"></i> Nombre de la Tarea
+                        </label>
+                        <input type="text" class="form-control" id="editName" name="Name" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="editDescription" class="form-label">
+                            <i class="bi bi-file-text"></i> Descripción
+                        </label>
+                        <textarea class="form-control" id="editDescription" name="Description" rows="4"></textarea>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="editStatus" class="form-label">
+                                <i class="bi bi-flag"></i> Estado
+                            </label>
+                            <select class="form-select" id="editStatus" name="Status" required>
+                                <option value="Pendiente">🕐 Pendiente</option>
+                                <option value="En Progreso">⏳ En Progreso</option>
+                                <option value="Completada">✅ Completada</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="editDueDate" class="form-label">
+                                <i class="bi bi-calendar-event"></i> Fecha de Vencimiento
+                            </label>
+                            <input type="date" class="form-control" id="editDueDate" name="DueDate" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-modern" data-bs-dismiss="modal">
+                        <i class="bi bi-x-circle"></i> Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-modern btn-gradient-primary">
+                        <i class="bi bi-save"></i> Guardar Cambios
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Ver Detalles -->
+<div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-info text-white">
+                <h5 class="modal-title" id="detailsModalLabel">
+                    <i class="bi bi-info-circle"></i> Detalles de la Tarea
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <dl class="row">
+                    <dt class="col-sm-3"><i class="bi bi-hash"></i> ID:</dt>
+                    <dd class="col-sm-9" id="detailId"></dd>
+
+                    <dt class="col-sm-3"><i class="bi bi-card-text"></i> Nombre:</dt>
+                    <dd class="col-sm-9 fw-bold" id="detailName"></dd>
+
+                    <dt class="col-sm-3"><i class="bi bi-file-text"></i> Descripción:</dt>
+                    <dd class="col-sm-9" id="detailDescription"></dd>
+
+                    <dt class="col-sm-3"><i class="bi bi-flag"></i> Estado:</dt>
+                    <dd class="col-sm-9" id="detailStatus"></dd>
+
+                    <dt class="col-sm-3"><i class="bi bi-calendar-event"></i> Vencimiento:</dt>
+                    <dd class="col-sm-9" id="detailDueDate"></dd>
+
+                    <dt class="col-sm-3"><i class="bi bi-clock-history"></i> Creación:</dt>
+                    <dd class="col-sm-9" id="detailCreatedAt"></dd>
+                </dl>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-modern" data-bs-dismiss="modal">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Confirmar Eliminación -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="deleteModalLabel">
+                    <i class="bi bi-exclamation-triangle"></i> Confirmar Eliminación
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-warning">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    <strong>Advertencia:</strong> ¿Está seguro que desea eliminar esta tarea?
+                </div>
+
+                <dl class="row">
+                    <dt class="col-sm-4">ID:</dt>
+                    <dd class="col-sm-8" id="deleteId"></dd>
+
+                    <dt class="col-sm-4">Nombre:</dt>
+                    <dd class="col-sm-8 fw-bold" id="deleteName"></dd>
+
+                    <dt class="col-sm-4">Estado:</dt>
+                    <dd class="col-sm-8" id="deleteStatus"></dd>
+                </dl>
+
+                <p class="text-muted mb-0">
+                    <small><i class="bi bi-info-circle"></i> Esta acción no se puede deshacer.</small>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-modern" data-bs-dismiss="modal">
+                    <i class="bi bi-x-circle"></i> Cancelar
+                </button>
+                <form asp-action="Delete" method="post" style="display: inline;" id="deleteForm">
+                    <input type="hidden" id="deleteTaskId" name="id" />
+                    <button type="submit" class="btn btn-danger btn-modern">
+                        <i class="bi bi-trash"></i> Confirmar Eliminación
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Inicializar tooltips
+        document.addEventListener('DOMContentLoaded', function() {
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle-tooltip="tooltip"]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        });
+
+        // Búsqueda en tiempo real
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            const searchValue = this.value.toLowerCase();
+            const rows = document.querySelectorAll('.task-row');
+
+            rows.forEach(row => {
+                const taskName = row.querySelector('.task-name').textContent.toLowerCase();
+                if (taskName.includes(searchValue)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+
+        // Filtros por estado
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Actualizar botón activo
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const filter = this.dataset.filter;
+                const rows = document.querySelectorAll('.task-row');
+
+                rows.forEach(row => {
+                    if (filter === 'all') {
+                        row.style.display = '';
+                    } else {
+                        const status = row.dataset.taskStatus;
+                        row.style.display = status === filter ? '' : 'none';
+                    }
+                });
+            });
+        });
+
+        // Función para mostrar detalles
+        function showDetails(id, name, description, status, dueDate, createdAt) {
+            document.getElementById('detailId').textContent = id;
+            document.getElementById('detailName').textContent = name;
+            document.getElementById('detailDescription').textContent = description;
+
+            let statusBadge = '';
+            if (status === 'Completada') {
+                statusBadge = '<span class="badge badge-modern bg-success"><i class="bi bi-check-circle-fill"></i> Completada</span>';
+            } else if (status === 'En Progreso') {
+                statusBadge = '<span class="badge badge-modern bg-warning"><i class="bi bi-hourglass-split"></i> En Progreso</span>';
+            } else {
+                statusBadge = '<span class="badge badge-modern bg-secondary"><i class="bi bi-clock"></i> Pendiente</span>';
+            }
+            document.getElementById('detailStatus').innerHTML = statusBadge;
+
+            document.getElementById('detailDueDate').textContent = dueDate;
+            document.getElementById('detailCreatedAt').textContent = createdAt;
+        }
+
+        // Función para cargar el formulario de edición
+        async function loadEditForm(id) {
+            try {
+                const response = await fetch(`/Tasks/GetTaskData/${id}`);
+                if (!response.ok) throw new Error('Error al cargar la tarea');
+
+                const task = await response.json();
+
+                document.getElementById('editId').value = task.id;
+                document.getElementById('editName').value = task.name;
+                document.getElementById('editDescription').value = task.description || '';
+                document.getElementById('editStatus').value = task.status;
+
+                if (task.dueDate) {
+                    const date = new Date(task.dueDate);
+                    const formattedDate = date.toISOString().split('T')[0];
+                    document.getElementById('editDueDate').value = formattedDate;
+                } else {
+                    document.getElementById('editDueDate').value = '';
+                }
+
+                document.getElementById('editCreatedAt').value = task.createdAt;
+
+                const editModal = new bootstrap.Modal(document.getElementById('editModal'));
+                editModal.show();
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al cargar los datos de la tarea');
+            }
+        }
+
+        // Función para confirmar eliminación
+        function showDeleteConfirm(id, name, description, status, dueDate, createdAt) {
+            document.getElementById('deleteId').textContent = id;
+            document.getElementById('deleteName').textContent = name;
+
+            let statusBadge = '';
+            if (status === 'Completada') {
+                statusBadge = '<span class="badge badge-modern bg-success"><i class="bi bi-check-circle-fill"></i> Completada</span>';
+            } else if (status === 'En Progreso') {
+                statusBadge = '<span class="badge badge-modern bg-warning"><i class="bi bi-hourglass-split"></i> En Progreso</span>';
+            } else {
+                statusBadge = '<span class="badge badge-modern bg-secondary"><i class="bi bi-clock"></i> Pendiente</span>';
+            }
+            document.getElementById('deleteStatus').innerHTML = statusBadge;
+
+            document.getElementById('deleteTaskId').value = id;
+        }
+    </script>
+}

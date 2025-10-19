@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.mvc\\views\\tasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|solutionrelative:ap.mvc\\views\\tasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.mvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|solutionrelative:ap.mvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.mvc\\wwwroot\\css\\tasks.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|solutionrelative:ap.mvc\\wwwroot\\css\\tasks.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.mvc\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|solutionrelative:ap.mvc\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5FA2F0B1-85E2-472D-BCB4-AA439160F003}|AP.MinimalApi\\AP.MinimalApi.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.minimalapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5FA2F0B1-85E2-472D-BCB4-AA439160F003}|AP.MinimalApi\\AP.MinimalApi.csproj|solutionrelative:ap.minimalapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,22 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{87A74C24-14AE-4042-BD3F-5E54BCBC4507}|AP.Api\\AP.Api.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.api\\controllers\\taskapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{87A74C24-14AE-4042-BD3F-5E54BCBC4507}|AP.Api\\AP.Api.csproj|solutionrelative:ap.api\\controllers\\taskapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.mvc\\views\\tasks\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|solutionrelative:ap.mvc\\views\\tasks\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.mvc\\views\\tasks\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|solutionrelative:ap.mvc\\views\\tasks\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.mvc\\views\\tasks\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|solutionrelative:ap.mvc\\views\\tasks\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.mvc\\views\\tasks\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|solutionrelative:ap.mvc\\views\\tasks\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6117E5FC-852E-47A2-B4BE-CAC35C4FFE4B}|AP.Models\\AP.Models.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.models\\dtos\\taskdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -114,15 +114,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Api\\Program.cs",
-              "RelativeDocumentMoniker": "AP.Api\\Program.cs",
-              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Api\\Program.cs",
-              "RelativeToolTip": "AP.Api\\Program.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "tasks.css",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\wwwroot\\css\\tasks.css",
+              "RelativeDocumentMoniker": "AP.Mvc\\wwwroot\\css\\tasks.css",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\wwwroot\\css\\tasks.css",
+              "RelativeToolTip": "AP.Mvc\\wwwroot\\css\\tasks.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-19T22:31:20.101Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "AP.Mvc\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "AP.Mvc\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAowEYAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-19T22:27:22.333Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Views\\Tasks\\Index.cshtml",
+              "RelativeDocumentMoniker": "AP.Mvc\\Views\\Tasks\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Views\\Tasks\\Index.cshtml",
+              "RelativeToolTip": "AP.Mvc\\Views\\Tasks\\Index.cshtml",
+              "ViewState": "AgIAAOEBAAAAAAAAAAAcwB0CAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-19T17:14:26.585Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TasksController.cs",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Controllers\\TasksController.cs",
+              "RelativeDocumentMoniker": "AP.Mvc\\Controllers\\TasksController.cs",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Controllers\\TasksController.cs",
+              "RelativeToolTip": "AP.Mvc\\Controllers\\TasksController.cs",
+              "ViewState": "AgIAALIAAAAAAAAAAAAgwNoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T15:21:33.721Z",
+              "WhenOpened": "2025-10-19T17:13:54.797Z",
               "EditorCaption": ""
             },
             {
@@ -135,38 +174,36 @@
               "RelativeToolTip": "AP.Models\\DTOs\\TaskDTO.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAQwBYAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T06:11:34.627Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-19T06:11:34.627Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.MinimalApi\\Program.cs",
               "RelativeDocumentMoniker": "AP.MinimalApi\\Program.cs",
               "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.MinimalApi\\Program.cs",
               "RelativeToolTip": "AP.MinimalApi\\Program.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAAE0AAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAADUAAAAAAAAAAAAmwDgAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-19T16:38:59.254Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "TaskApiClient.cs",
               "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Architecture\\Clients\\TaskApiClient.cs",
               "RelativeDocumentMoniker": "AP.Architecture\\Clients\\TaskApiClient.cs",
               "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Architecture\\Clients\\TaskApiClient.cs",
               "RelativeToolTip": "AP.Architecture\\Clients\\TaskApiClient.cs",
-              "ViewState": "AgIAAFcAAAAAAAAAAAASwGEAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAtwB4AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T06:50:19.146Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-19T06:50:19.146Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "TaskApiController.cs",
               "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Api\\Controllers\\TaskApiController.cs",
               "RelativeDocumentMoniker": "AP.Api\\Controllers\\TaskApiController.cs",
@@ -174,8 +211,19 @@
               "RelativeToolTip": "AP.Api\\Controllers\\TaskApiController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T05:28:30.035Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-19T05:28:30.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Api\\Program.cs",
+              "RelativeDocumentMoniker": "AP.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Api\\Program.cs",
+              "RelativeToolTip": "AP.Api\\Program.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T15:21:33.721Z"
             },
             {
               "$type": "Document",
@@ -187,34 +235,7 @@
               "RelativeToolTip": "AP.Data\\Models\\TaskDbContext.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAIwCUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T15:30:04.609Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Views\\Tasks\\Create.cshtml",
-              "RelativeDocumentMoniker": "AP.Mvc\\Views\\Tasks\\Create.cshtml",
-              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Views\\Tasks\\Create.cshtml",
-              "RelativeToolTip": "AP.Mvc\\Views\\Tasks\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-19T07:12:33.522Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Views\\Tasks\\Details.cshtml",
-              "RelativeDocumentMoniker": "AP.Mvc\\Views\\Tasks\\Details.cshtml",
-              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Views\\Tasks\\Details.cshtml",
-              "RelativeToolTip": "AP.Mvc\\Views\\Tasks\\Details.cshtml",
-              "ViewState": "AgIAABYAAAAAAAAAAAAiwC4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-19T16:32:52.43Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-19T15:30:04.609Z"
             },
             {
               "$type": "Document",
@@ -226,34 +247,7 @@
               "RelativeToolTip": "AP.Data\\Repositories\\RepositoryTask.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAA7wB0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T05:25:27.566Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Views\\Tasks\\Delete.cshtml",
-              "RelativeDocumentMoniker": "AP.Mvc\\Views\\Tasks\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Views\\Tasks\\Delete.cshtml",
-              "RelativeToolTip": "AP.Mvc\\Views\\Tasks\\Delete.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-19T07:12:57.601Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Views\\Tasks\\Edit.cshtml",
-              "RelativeDocumentMoniker": "AP.Mvc\\Views\\Tasks\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Views\\Tasks\\Edit.cshtml",
-              "RelativeToolTip": "AP.Mvc\\Views\\Tasks\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-19T07:12:40.457Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-19T05:25:27.566Z"
             },
             {
               "$type": "Document",
@@ -265,8 +259,7 @@
               "RelativeToolTip": "AP.Core\\BusinessLogic\\TaskBusiness.cs",
               "ViewState": "AgIAACEAAAAAAAAAAIA7wDEAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T05:29:53.097Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-19T05:29:53.097Z"
             },
             {
               "$type": "Document",
@@ -278,8 +271,7 @@
               "RelativeToolTip": "AP.Mvc\\Program.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAAAAwAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T05:53:27.833Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-19T05:53:27.833Z"
             },
             {
               "$type": "Document",
@@ -291,8 +283,7 @@
               "RelativeToolTip": "AP.Data\\Repositories\\RepositoryBase.cs",
               "ViewState": "AgIAADYAAAAAAAAAAAAawFQAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T05:20:34.103Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-19T05:20:34.103Z"
             },
             {
               "$type": "Document",
@@ -304,8 +295,7 @@
               "RelativeToolTip": "AP.Architecture\\Providers\\RestProvider.cs",
               "ViewState": "AgIAAFAAAAAAAAAAAAAuwHwAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T06:12:57.802Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-19T06:12:57.802Z"
             },
             {
               "$type": "Document",
@@ -317,8 +307,7 @@
               "RelativeToolTip": "AP.Architecture\\Helpers\\RestProviderHelpers.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAWwBUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T06:12:45.161Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-19T06:12:45.161Z"
             },
             {
               "$type": "Document",

@@ -169,10 +169,33 @@ namespace AP.Mvc.Controllers
             }
         }
 
-        // POST: Tasks/Delete/5
-        [HttpPost, ActionName("Delete")]
+        // AP.Mvc/Controllers/TasksController.cs
+
+        // Agregar este método al final de tu TasksController:
+
+        [HttpGet]
+        public async Task<IActionResult> GetTaskData(int id)
+        {
+            try
+            {
+                var task = await _apiClient.GetByIdAsync<TaskDTO>("task", id);
+                if (task == null)
+                {
+                    return NotFound();
+                }
+                return Json(task);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error al obtener datos de la tarea {TaskId}", id);
+                return StatusCode(500, "Error al cargar los datos de la tarea");
+            }
+        }
+
+        // Cambiar el método Delete para que acepte el ID directamente
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             try
             {
