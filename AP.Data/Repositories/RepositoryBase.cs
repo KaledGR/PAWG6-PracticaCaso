@@ -1,6 +1,5 @@
-﻿using AP.Data.Models;
-using Microsoft.EntityFrameworkCore;
-
+﻿using Microsoft.EntityFrameworkCore;
+using AP.Data.Models;
 
 namespace AP.Data.Repositories;
 
@@ -73,8 +72,8 @@ public interface IRepositoryBase<T>
 /// <typeparam name="T">Entity type.</typeparam>
 public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
 {
-    private readonly CasoDeEstudioContext _context;
-    protected CasoDeEstudioContext DbContext => _context;
+    private readonly TaskDbContext _context;
+    protected TaskDbContext DbContext => _context;
     protected DbSet<T> DbSet;
 
     /// <summary>
@@ -82,13 +81,13 @@ public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
     /// </summary>
     public RepositoryBase()
     {
-        _context = new CasoDeEstudioContext();
+        _context = new TaskDbContext();
         DbSet<T> _sdbSet = _context.Set<T>();
     }
 
     public async Task<bool> UpsertAsync(T entity, bool isUpdating)
     {
-        return isUpdating 
+        return isUpdating
             ? await UpdateAsync(entity)
             : await CreateAsync(entity);
     }

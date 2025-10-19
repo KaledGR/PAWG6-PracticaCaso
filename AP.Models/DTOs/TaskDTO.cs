@@ -1,24 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
+
 
 namespace AP.Models.DTOs
 {
     public class TaskDTO
     {
-        [JsonPropertyName("taskId")]
-        public int TaskId { get; set; }
+        [JsonPropertyName("id")]
+        public int Id { get; set; }
 
         [JsonPropertyName("name")]
         public string Name { get; set; } = null!;
+
         [JsonPropertyName("description")]
         public string? Description { get; set; }
-        [JsonPropertyName("createDate")]
-        public DateTime CreatedDate { get; set; }
-        [JsonPropertyName("createdBy")]
-        public string CreatedBy { get; set; } = null!;
+
+        [JsonPropertyName("status")]
+        public string Status { get; set; } = null!;
+
+        [JsonPropertyName("dueDate")]
+        public DateTime? DueDate { get; set; }
+
+        [JsonPropertyName("createAt")]
+        public DateTime CreatedAt { get; set; }
     }
 }

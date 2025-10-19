@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kaled\\source\\repos\\PAWG6CP\\AP.Models\\AP.Models.csproj": {}
+    "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Models\\AP.Models.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kaled\\source\\repos\\PAWG6CP\\AP.Models\\AP.Models.csproj": {
+    "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Models\\AP.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kaled\\source\\repos\\PAWG6CP\\AP.Models\\AP.Models.csproj",
+        "projectUniqueName": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Models\\AP.Models.csproj",
         "projectName": "AP.Models",
-        "projectPath": "C:\\Users\\Kaled\\source\\repos\\PAWG6CP\\AP.Models\\AP.Models.csproj",
-        "packagesPath": "C:\\Users\\Kaled\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kaled\\source\\repos\\PAWG6CP\\AP.Models\\obj\\",
+        "projectPath": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Models\\AP.Models.csproj",
+        "packagesPath": "C:\\Users\\Nacho\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Kaled\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Nacho\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

@@ -1,0 +1,16 @@
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Architecture\bin\Debug\net8.0\AP.Architecture.deps.json
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Architecture\bin\Debug\net8.0\AP.Architecture.dll
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Architecture\bin\Debug\net8.0\AP.Architecture.pdb
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Architecture\bin\Debug\net8.0\AP.Data.dll
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Architecture\bin\Debug\net8.0\AP.Data.pdb
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Architecture\obj\Debug\net8.0\AP.Architecture.csproj.AssemblyReference.cache
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Architecture\obj\Debug\net8.0\AP.Architecture.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Architecture\obj\Debug\net8.0\AP.Architecture.AssemblyInfoInputs.cache
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Architecture\obj\Debug\net8.0\AP.Architecture.AssemblyInfo.cs
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Architecture\obj\Debug\net8.0\AP.Architecture.csproj.CoreCompileInputs.cache
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Architecture\obj\Debug\net8.0\AP.Architecture.sourcelink.json
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Architecture\obj\Debug\net8.0\AP.Archi.ADA97EAB.Up2Date
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Architecture\obj\Debug\net8.0\AP.Architecture.dll
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Architecture\obj\Debug\net8.0\refint\AP.Architecture.dll
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Architecture\obj\Debug\net8.0\AP.Architecture.pdb
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Architecture\obj\Debug\net8.0\ref\AP.Architecture.dll

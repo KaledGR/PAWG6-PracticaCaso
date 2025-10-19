@@ -1,0 +1,12 @@
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Models\bin\Debug\net8.0\AP.Models.deps.json
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Models\bin\Debug\net8.0\AP.Models.dll
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Models\bin\Debug\net8.0\AP.Models.pdb
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Models\obj\Debug\net8.0\AP.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Models\obj\Debug\net8.0\AP.Models.AssemblyInfoInputs.cache
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Models\obj\Debug\net8.0\AP.Models.AssemblyInfo.cs
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Models\obj\Debug\net8.0\AP.Models.csproj.CoreCompileInputs.cache
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Models\obj\Debug\net8.0\AP.Models.sourcelink.json
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Models\obj\Debug\net8.0\AP.Models.dll
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Models\obj\Debug\net8.0\refint\AP.Models.dll
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Models\obj\Debug\net8.0\AP.Models.pdb
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Models\obj\Debug\net8.0\ref\AP.Models.dll

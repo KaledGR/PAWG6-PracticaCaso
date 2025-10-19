@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kaled\\source\\repos\\PAWG6CP\\AP.Data\\AP.Data.csproj": {}
+    "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Data\\AP.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kaled\\source\\repos\\PAWG6CP\\AP.Data\\AP.Data.csproj": {
+    "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Data\\AP.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kaled\\source\\repos\\PAWG6CP\\AP.Data\\AP.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Data\\AP.Data.csproj",
         "projectName": "AP.Data",
-        "projectPath": "C:\\Users\\Kaled\\source\\repos\\PAWG6CP\\AP.Data\\AP.Data.csproj",
-        "packagesPath": "C:\\Users\\Kaled\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kaled\\source\\repos\\PAWG6CP\\AP.Data\\obj\\",
+        "projectPath": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Data\\AP.Data.csproj",
+        "packagesPath": "C:\\Users\\Nacho\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Kaled\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Nacho\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

@@ -1,0 +1,16 @@
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Core\bin\Debug\net8.0\AP.Core.deps.json
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Core\bin\Debug\net8.0\AP.Core.dll
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Core\bin\Debug\net8.0\AP.Core.pdb
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Core\bin\Debug\net8.0\AP.Data.dll
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Core\bin\Debug\net8.0\AP.Data.pdb
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Core\obj\Debug\net8.0\AP.Core.csproj.AssemblyReference.cache
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Core\obj\Debug\net8.0\AP.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Core\obj\Debug\net8.0\AP.Core.AssemblyInfoInputs.cache
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Core\obj\Debug\net8.0\AP.Core.AssemblyInfo.cs
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Core\obj\Debug\net8.0\AP.Core.csproj.CoreCompileInputs.cache
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Core\obj\Debug\net8.0\AP.Core.sourcelink.json
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Core\obj\Debug\net8.0\AP.Core.csproj.Up2Date
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Core\obj\Debug\net8.0\AP.Core.dll
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Core\obj\Debug\net8.0\refint\AP.Core.dll
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Core\obj\Debug\net8.0\AP.Core.pdb
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Core\obj\Debug\net8.0\ref\AP.Core.dll

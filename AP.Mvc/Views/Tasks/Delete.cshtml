@@ -1,0 +1,58 @@
+﻿@model AP.Data.Models.Task
+
+@{
+    ViewData["Title"] = "Eliminar Tarea";
+}
+
+<div class="container mt-4">
+    <h2>@ViewData["Title"]</h2>
+    <hr />
+
+    <div class="alert alert-warning">
+        <i class="bi bi-exclamation-triangle"></i>
+        <strong>Advertencia:</strong> ¿Está seguro que desea eliminar esta tarea?
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h5>Detalles de la Tarea</h5>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">ID:</dt>
+                <dd class="col-sm-9">@Model.Id</dd>
+
+                <dt class="col-sm-3">Nombre:</dt>
+                <dd class="col-sm-9">@Model.Name</dd>
+
+                <dt class="col-sm-3">Descripción:</dt>
+                <dd class="col-sm-9">@(Model.Description ?? "Sin descripción")</dd>
+
+                <dt class="col-sm-3">Estado:</dt>
+                <dd class="col-sm-9">
+                    <span class="badge bg-@(Model.Status == "Completada" ? "success" : Model.Status == "En Progreso" ? "warning" : "secondary")">
+                        @Model.Status
+                    </span>
+                </dd>
+
+                <dt class="col-sm-3">Fecha de Vencimiento:</dt>
+                <dd class="col-sm-9">@(Model.DueDate?.ToString("dd/MM/yyyy") ?? "Sin fecha")</dd>
+
+                <dt class="col-sm-3">Fecha de Creación:</dt>
+                <dd class="col-sm-9">@Model.CreatedAt.ToString("dd/MM/yyyy HH:mm")</dd>
+            </dl>
+
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="Id" />
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="bi bi-trash"></i> Confirmar Eliminación
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-x-circle"></i> Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

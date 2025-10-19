@@ -1,10 +1,86 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Kaled\\source\\repos\\PAWG6CP\\",
+  "WorkspaceRootPath": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{87A74C24-14AE-4042-BD3F-5E54BCBC4507}|AP.Api\\AP.Api.csproj|c:\\users\\kaled\\source\\repos\\pawg6cp\\ap.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{87A74C24-14AE-4042-BD3F-5E54BCBC4507}|AP.Api\\AP.Api.csproj|solutionrelative:ap.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.mvc\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|solutionrelative:ap.mvc\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.mvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|solutionrelative:ap.mvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C94974BE-5749-41A8-8A87-AEC7FC6F98E6}|AP.Architecture\\AP.Architecture.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.architecture\\clients\\taskapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C94974BE-5749-41A8-8A87-AEC7FC6F98E6}|AP.Architecture\\AP.Architecture.csproj|solutionrelative:ap.architecture\\clients\\taskapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.mvc\\views\\tasks\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|solutionrelative:ap.mvc\\views\\tasks\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.mvc\\views\\tasks\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|solutionrelative:ap.mvc\\views\\tasks\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.mvc\\views\\tasks\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|solutionrelative:ap.mvc\\views\\tasks\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{320681D7-7074-450C-901F-F5C51BB84D5E}|AP.Core\\AP.Core.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.core\\businesslogic\\taskbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{320681D7-7074-450C-901F-F5C51BB84D5E}|AP.Core\\AP.Core.csproj|solutionrelative:ap.core\\businesslogic\\taskbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.mvc\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|solutionrelative:ap.mvc\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.mvc\\views\\tasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D9E494B-685E-42E0-8B66-F053110CC4B6}|AP.Mvc\\AP.Mvc.csproj|solutionrelative:ap.mvc\\views\\tasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6117E5FC-852E-47A2-B4BE-CAC35C4FFE4B}|AP.Models\\AP.Models.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.models\\dtos\\taskdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6117E5FC-852E-47A2-B4BE-CAC35C4FFE4B}|AP.Models\\AP.Models.csproj|solutionrelative:ap.models\\dtos\\taskdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80F07A7D-0982-4ABF-9C8F-9EF59CC2E1EB}|AP.Data\\AP.Data.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.data\\repositories\\repositorytask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80F07A7D-0982-4ABF-9C8F-9EF59CC2E1EB}|AP.Data\\AP.Data.csproj|solutionrelative:ap.data\\repositories\\repositorytask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C94974BE-5749-41A8-8A87-AEC7FC6F98E6}|AP.Architecture\\AP.Architecture.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.architecture\\ap.architecture.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{C94974BE-5749-41A8-8A87-AEC7FC6F98E6}|AP.Architecture\\AP.Architecture.csproj|solutionrelative:ap.architecture\\ap.architecture.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80F07A7D-0982-4ABF-9C8F-9EF59CC2E1EB}|AP.Data\\AP.Data.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.data\\repositories\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80F07A7D-0982-4ABF-9C8F-9EF59CC2E1EB}|AP.Data\\AP.Data.csproj|solutionrelative:ap.data\\repositories\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C94974BE-5749-41A8-8A87-AEC7FC6F98E6}|AP.Architecture\\AP.Architecture.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.architecture\\providers\\jsonprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C94974BE-5749-41A8-8A87-AEC7FC6F98E6}|AP.Architecture\\AP.Architecture.csproj|solutionrelative:ap.architecture\\providers\\jsonprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87A74C24-14AE-4042-BD3F-5E54BCBC4507}|AP.Api\\AP.Api.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.api\\controllers\\taskapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87A74C24-14AE-4042-BD3F-5E54BCBC4507}|AP.Api\\AP.Api.csproj|solutionrelative:ap.api\\controllers\\taskapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C94974BE-5749-41A8-8A87-AEC7FC6F98E6}|AP.Architecture\\AP.Architecture.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.architecture\\extensions\\datetimeextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C94974BE-5749-41A8-8A87-AEC7FC6F98E6}|AP.Architecture\\AP.Architecture.csproj|solutionrelative:ap.architecture\\extensions\\datetimeextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C94974BE-5749-41A8-8A87-AEC7FC6F98E6}|AP.Architecture\\AP.Architecture.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.architecture\\extensions\\httpclientextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C94974BE-5749-41A8-8A87-AEC7FC6F98E6}|AP.Architecture\\AP.Architecture.csproj|solutionrelative:ap.architecture\\extensions\\httpclientextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C94974BE-5749-41A8-8A87-AEC7FC6F98E6}|AP.Architecture\\AP.Architecture.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.architecture\\extensions\\stringextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C94974BE-5749-41A8-8A87-AEC7FC6F98E6}|AP.Architecture\\AP.Architecture.csproj|solutionrelative:ap.architecture\\extensions\\stringextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C94974BE-5749-41A8-8A87-AEC7FC6F98E6}|AP.Architecture\\AP.Architecture.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.architecture\\helpers\\restproviderhelpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C94974BE-5749-41A8-8A87-AEC7FC6F98E6}|AP.Architecture\\AP.Architecture.csproj|solutionrelative:ap.architecture\\helpers\\restproviderhelpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C94974BE-5749-41A8-8A87-AEC7FC6F98E6}|AP.Architecture\\AP.Architecture.csproj|c:\\users\\nacho\\documents\\practica 1\\pawg6-practicacaso\\ap.architecture\\providers\\restprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C94974BE-5749-41A8-8A87-AEC7FC6F98E6}|AP.Architecture\\AP.Architecture.csproj|solutionrelative:ap.architecture\\providers\\restprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +90,278 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Views\\Tasks\\Create.cshtml",
+              "RelativeDocumentMoniker": "AP.Mvc\\Views\\Tasks\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Views\\Tasks\\Create.cshtml",
+              "RelativeToolTip": "AP.Mvc\\Views\\Tasks\\Create.cshtml",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAAEAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-19T07:12:33.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\appsettings.json",
+              "RelativeDocumentMoniker": "AP.Mvc\\appsettings.json",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\appsettings.json",
+              "RelativeToolTip": "AP.Mvc\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-19T06:54:52.78Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Kaled\\source\\repos\\PAWG6CP\\AP.Api\\Program.cs",
-              "RelativeDocumentMoniker": "AP.Api\\Program.cs",
-              "ToolTip": "C:\\Users\\Kaled\\source\\repos\\PAWG6CP\\AP.Api\\Program.cs*",
-              "RelativeToolTip": "AP.Api\\Program.cs*",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAswDcAAAAfAAAAAAAAAA==",
+              "Title": "TasksController.cs",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Controllers\\TasksController.cs",
+              "RelativeDocumentMoniker": "AP.Mvc\\Controllers\\TasksController.cs",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Controllers\\TasksController.cs*",
+              "RelativeToolTip": "AP.Mvc\\Controllers\\TasksController.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T02:12:45.597Z",
+              "WhenOpened": "2025-10-19T06:54:17.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TaskApiClient.cs",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Architecture\\Clients\\TaskApiClient.cs",
+              "RelativeDocumentMoniker": "AP.Architecture\\Clients\\TaskApiClient.cs",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Architecture\\Clients\\TaskApiClient.cs",
+              "RelativeToolTip": "AP.Architecture\\Clients\\TaskApiClient.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAFgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T06:50:19.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Views\\Tasks\\Delete.cshtml",
+              "RelativeDocumentMoniker": "AP.Mvc\\Views\\Tasks\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Views\\Tasks\\Delete.cshtml",
+              "RelativeToolTip": "AP.Mvc\\Views\\Tasks\\Delete.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAiwDkAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-19T07:12:57.601Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Program.cs",
+              "RelativeDocumentMoniker": "AP.Mvc\\Program.cs",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Program.cs",
+              "RelativeToolTip": "AP.Mvc\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T05:53:27.833Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Views\\Tasks\\Edit.cshtml",
+              "RelativeDocumentMoniker": "AP.Mvc\\Views\\Tasks\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Views\\Tasks\\Edit.cshtml",
+              "RelativeToolTip": "AP.Mvc\\Views\\Tasks\\Edit.cshtml",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAAEIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-19T07:12:40.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TaskBusiness.cs",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Core\\BusinessLogic\\TaskBusiness.cs",
+              "RelativeDocumentMoniker": "AP.Core\\BusinessLogic\\TaskBusiness.cs",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Core\\BusinessLogic\\TaskBusiness.cs",
+              "RelativeToolTip": "AP.Core\\BusinessLogic\\TaskBusiness.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAowAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T05:29:53.097Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Views\\Tasks\\Index.cshtml",
+              "RelativeDocumentMoniker": "AP.Mvc\\Views\\Tasks\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Mvc\\Views\\Tasks\\Index.cshtml",
+              "RelativeToolTip": "AP.Mvc\\Views\\Tasks\\Index.cshtml",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAiwFUAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-19T06:55:38.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "RepositoryTask.cs",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Data\\Repositories\\RepositoryTask.cs",
+              "RelativeDocumentMoniker": "AP.Data\\Repositories\\RepositoryTask.cs",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Data\\Repositories\\RepositoryTask.cs",
+              "RelativeToolTip": "AP.Data\\Repositories\\RepositoryTask.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T05:25:27.566Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TaskDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Models\\DTOs\\TaskDTO.cs",
+              "RelativeDocumentMoniker": "AP.Models\\DTOs\\TaskDTO.cs",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Models\\DTOs\\TaskDTO.cs",
+              "RelativeToolTip": "AP.Models\\DTOs\\TaskDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T06:11:34.627Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AP.Architecture",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Architecture\\AP.Architecture.csproj",
+              "RelativeDocumentMoniker": "AP.Architecture\\AP.Architecture.csproj",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Architecture\\AP.Architecture.csproj",
+              "RelativeToolTip": "AP.Architecture\\AP.Architecture.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-19T06:06:09.589Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "RepositoryBase.cs",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Data\\Repositories\\RepositoryBase.cs",
+              "RelativeDocumentMoniker": "AP.Data\\Repositories\\RepositoryBase.cs",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Data\\Repositories\\RepositoryBase.cs",
+              "RelativeToolTip": "AP.Data\\Repositories\\RepositoryBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFMAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T05:20:34.103Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "JsonProvider.cs",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Architecture\\Providers\\JsonProvider.cs",
+              "RelativeDocumentMoniker": "AP.Architecture\\Providers\\JsonProvider.cs",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Architecture\\Providers\\JsonProvider.cs",
+              "RelativeToolTip": "AP.Architecture\\Providers\\JsonProvider.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwAMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T06:12:52.507Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "TaskApiController.cs",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Api\\Controllers\\TaskApiController.cs",
+              "RelativeDocumentMoniker": "AP.Api\\Controllers\\TaskApiController.cs",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Api\\Controllers\\TaskApiController.cs",
+              "RelativeToolTip": "AP.Api\\Controllers\\TaskApiController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAowBUAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T05:28:30.035Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DateTimeExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Architecture\\Extensions\\DateTimeExtensions.cs",
+              "RelativeDocumentMoniker": "AP.Architecture\\Extensions\\DateTimeExtensions.cs",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Architecture\\Extensions\\DateTimeExtensions.cs",
+              "RelativeToolTip": "AP.Architecture\\Extensions\\DateTimeExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T06:12:18.828Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "HttpClientExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Architecture\\Extensions\\HttpClientExtensions.cs",
+              "RelativeDocumentMoniker": "AP.Architecture\\Extensions\\HttpClientExtensions.cs",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Architecture\\Extensions\\HttpClientExtensions.cs",
+              "RelativeToolTip": "AP.Architecture\\Extensions\\HttpClientExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T06:12:27.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "StringExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Architecture\\Extensions\\StringExtensions.cs",
+              "RelativeDocumentMoniker": "AP.Architecture\\Extensions\\StringExtensions.cs",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Architecture\\Extensions\\StringExtensions.cs",
+              "RelativeToolTip": "AP.Architecture\\Extensions\\StringExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T06:12:34.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "RestProviderHelpers.cs",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Architecture\\Helpers\\RestProviderHelpers.cs",
+              "RelativeDocumentMoniker": "AP.Architecture\\Helpers\\RestProviderHelpers.cs",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Architecture\\Helpers\\RestProviderHelpers.cs",
+              "RelativeToolTip": "AP.Architecture\\Helpers\\RestProviderHelpers.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwAcAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T06:12:45.161Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "RestProvider.cs",
+              "DocumentMoniker": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Architecture\\Providers\\RestProvider.cs",
+              "RelativeDocumentMoniker": "AP.Architecture\\Providers\\RestProvider.cs",
+              "ToolTip": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Architecture\\Providers\\RestProvider.cs",
+              "RelativeToolTip": "AP.Architecture\\Providers\\RestProvider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T06:12:57.802Z",
               "EditorCaption": ""
             }
           ]

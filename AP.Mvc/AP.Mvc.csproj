@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AP.Api\AP.Api.csproj" />
+    <ProjectReference Include="..\AP.Architecture\AP.Architecture.csproj" />
+    <ProjectReference Include="..\AP.Data\AP.Data.csproj" />
+    <ProjectReference Include="..\AP.Models\AP.Models.csproj" />
+  </ItemGroup>
+
+</Project>
