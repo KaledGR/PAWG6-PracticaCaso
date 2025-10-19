@@ -20,7 +20,7 @@ namespace AP.Models.DTOs
         [JsonPropertyName("dueDate")]
         public DateTime? DueDate { get; set; }
 
-        [JsonPropertyName("createAt")]
+        [JsonPropertyName("createdAt")]
         public DateTime CreatedAt { get; set; }
     }
 }

@@ -14,14 +14,22 @@ public interface IServiceTaskService
     Task<bool> DeleteAsync(string name, int id);
 }
 
-public class TaskApiClient(IRestProvider restProvider, IConfiguration configuration) : IServiceTaskService
+public class TaskApiClient : IServiceTaskService
 {
-    private const string ServiceLocatorBaseUrl = "https://localhost:7068/api/";
+    private readonly IRestProvider _restProvider;
+
+    private const string MinimalApiBaseUrl = "https://localhost:7064/api/"; // MinimalApi para READ
+    private const string CrudApiBaseUrl = "https://localhost:7068/api/";    // API normal para CUD
+
+    public TaskApiClient(IRestProvider restProvider)
+    {
+        _restProvider = restProvider;
+    }
 
     public async Task<IEnumerable<T>> GetDataAsync<T>(string name) where T : class
     {
-        var endpoint = $"{ServiceLocatorBaseUrl}{GetApiEndpoint(name)}";
-        var response = await restProvider.GetAsync(endpoint, name);
+        var endpoint = $"{MinimalApiBaseUrl}{GetApiEndpoint(name)}";
+        var response = await _restProvider.GetAsync(endpoint, null);
         return await JsonProvider.DeserializeAsync<IEnumerable<T>>(response);
     }
 
@@ -29,8 +37,8 @@ public class TaskApiClient(IRestProvider restProvider, IConfiguration configurat
     {
         try
         {
-            var endpoint = $"{ServiceLocatorBaseUrl}{GetApiEndpoint(name)}/{(id)}";
-            var response = await restProvider.GetAsync(endpoint, id.ToString());
+            var endpoint = $"{MinimalApiBaseUrl}{GetApiEndpoint(name)}/{(id)}";
+            var response = await _restProvider.GetAsync(endpoint, id.ToString());
             return await JsonProvider.DeserializeAsync<T>(response);
         }
         catch
@@ -44,8 +52,8 @@ public class TaskApiClient(IRestProvider restProvider, IConfiguration configurat
         try
         {
             var json = JsonSerializer.Serialize(entity);
-            var endpoint = $"{ServiceLocatorBaseUrl}{GetApiEndpoint(name)}";
-            var response = await restProvider.PostAsync(endpoint, json);
+            var endpoint = $"{CrudApiBaseUrl}{GetApiEndpoint(name)}";
+            var response = await _restProvider.PostAsync(endpoint, json);
             return !string.IsNullOrEmpty(response);
         }
         catch
@@ -59,8 +67,8 @@ public class TaskApiClient(IRestProvider restProvider, IConfiguration configurat
         try
         {
             var json = JsonSerializer.Serialize(entity);
-            var endpoint = $"{ServiceLocatorBaseUrl}{GetApiEndpoint(name)}/{(id)}";
-            var response = await restProvider.PutAsync(endpoint, id.ToString(), json);
+            var endpoint = $"{CrudApiBaseUrl}{GetApiEndpoint(name)}/{(id)}";
+            var response = await _restProvider.PutAsync(endpoint, id.ToString(), json);
             return !string.IsNullOrEmpty(response);
         }
         catch
@@ -73,8 +81,8 @@ public class TaskApiClient(IRestProvider restProvider, IConfiguration configurat
     {
         try
         {
-            var endpoint = $"{ServiceLocatorBaseUrl}{GetApiEndpoint(name)}/{(id)}";
-            var response = await restProvider.DeleteAsync(endpoint, id.ToString());
+            var endpoint = $"{CrudApiBaseUrl}{GetApiEndpoint(name)}/{(id)}";
+            var response = await _restProvider.DeleteAsync(endpoint, id.ToString());
             return !string.IsNullOrEmpty(response);
         }
         catch

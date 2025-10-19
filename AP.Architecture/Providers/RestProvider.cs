@@ -56,7 +56,8 @@ public class RestProvider : IRestProvider
 	{
 		try
 		{
-			var response = await RestProviderHelpers.CreateHttpClient(endpoint)
+            var url = string.IsNullOrEmpty(id) ? "" : id;
+            var response = await RestProviderHelpers.CreateHttpClient(endpoint)
 				.GetAsync(id);
 			return await RestProviderHelpers.GetResponse(response);
 		}
@@ -98,7 +99,8 @@ public class RestProvider : IRestProvider
 	{
 		try
 		{
-			var response = await RestProviderHelpers.CreateHttpClient(endpoint)
+            var url = string.IsNullOrEmpty(id) ? "" : id;
+            var response = await RestProviderHelpers.CreateHttpClient(endpoint)
 				.PutAsync(id, RestProviderHelpers.CreateContent(content));
 			var result = await RestProviderHelpers.GetResponse(response);
 			return result;
@@ -119,7 +121,8 @@ public class RestProvider : IRestProvider
 	{
 		try
 		{
-			var response = await RestProviderHelpers.CreateHttpClient(endpoint)
+            var url = string.IsNullOrEmpty(id) ? "" : id;
+            var response = await RestProviderHelpers.CreateHttpClient(endpoint)
 				.DeleteAsync(id);
 			var result = await RestProviderHelpers.GetResponse(response);
 			return result;

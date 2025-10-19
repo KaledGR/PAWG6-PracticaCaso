@@ -9,6 +9,7 @@ namespace PAW3.Api.Controllers;
 [ApiController]
 public class TaskApiController(ITaskBusiness taskBusiness) : ControllerBase
 {
+    /*
     // GET: api/TaskApi
     [HttpGet]
     public async Task<IActionResult> Get()
@@ -26,7 +27,7 @@ public class TaskApiController(ITaskBusiness taskBusiness) : ControllerBase
             return NotFound();
         return Ok(task.First());
     }
-
+    */
     // POST: api/TaskApi
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] TaskModel task)

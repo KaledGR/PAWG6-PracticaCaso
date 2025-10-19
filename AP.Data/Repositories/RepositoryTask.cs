@@ -19,8 +19,14 @@ public interface IRepositoryTask
 
 public class RepositoryTask : RepositoryBase<TaskModel>, IRepositoryTask
 {
-    public async new Task<bool> ExistsAsync(TaskModel entity)
+    // ✅ CORRECCIÓN: Recibir y pasar el contexto
+    public RepositoryTask(TaskDbContext context) : base(context)
+    {
+    }
+
+    public new async Task<bool> ExistsAsync(TaskModel entity)
     {
         return await DbContext.Tasks.AnyAsync(x => x.Id == entity.Id);
     }
+
 }

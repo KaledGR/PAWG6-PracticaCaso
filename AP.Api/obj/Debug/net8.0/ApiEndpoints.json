@@ -1,16 +1,6 @@
 [
   {
     "ContainingType": "PAW3.Api.Controllers.TaskApiController",
-    "Method": "Get",
-    "RelativePath": "api/TaskApi",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "PAW3.Api.Controllers.TaskApiController",
     "Method": "Post",
     "RelativePath": "api/TaskApi",
     "HttpMethod": "POST",
@@ -20,22 +10,6 @@
       {
         "Name": "task",
         "Type": "AP.Data.Models.Task",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "PAW3.Api.Controllers.TaskApiController",
-    "Method": "Get",
-    "RelativePath": "api/TaskApi/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

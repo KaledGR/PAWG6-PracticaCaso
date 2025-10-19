@@ -9,6 +9,10 @@
       {
         "Path": "AP.Mvc\\AP.Mvc.csproj",
         "Action": "Start"
+      },
+      {
+        "Path": "AP.MinimalApi\\AP.MinimalApi.csproj",
+        "Action": "Start"
       }
     ]
   }

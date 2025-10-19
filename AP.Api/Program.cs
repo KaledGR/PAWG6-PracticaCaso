@@ -1,6 +1,8 @@
 using AP.Core.BusinessLogic;
 using AP.Core.BusinessLogic;
+using AP.Data.Models;
 using AP.Data.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Business Logic registrations
+
+builder.Services.AddDbContext<TaskDbContext>(options =>
+    options.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=TaskDB;Trusted_Connection=True;TrustServerCertificate=True;"));
 
 
 builder.Services.AddScoped<ITaskBusiness, TaskBusiness>();

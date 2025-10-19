@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// AP.Data/Models/TaskDbContext.cs
 using Microsoft.EntityFrameworkCore;
 
 namespace AP.Data.Models;
 
 public partial class TaskDbContext : DbContext
 {
-    public TaskDbContext()
-    {
-    }
-
+    // ✅ SOLO este constructor
     public TaskDbContext(DbContextOptions<TaskDbContext> options)
         : base(options)
     {
@@ -17,9 +13,8 @@ public partial class TaskDbContext : DbContext
 
     public virtual DbSet<Task> Tasks { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=localhost;Database=TaskDB;Trusted_Connection=True;TrustServerCertificate=True;");
+    // ✅ REMOVER OnConfiguring - la conexión viene del Program.cs
+    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
