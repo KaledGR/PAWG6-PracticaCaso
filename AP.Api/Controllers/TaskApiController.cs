@@ -3,31 +3,19 @@ using AP.Core.BusinessLogic;
 using AP.Data.Models;
 using TaskModel = AP.Data.Models.Task;
 
-namespace PAW3.Api.Controllers;
+namespace AP.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class TaskApiController(ITaskBusiness taskBusiness) : ControllerBase
+public class TaskApiController : ControllerBase
 {
-    /*
-    // GET: api/TaskApi
-    [HttpGet]
-    public async Task<IActionResult> Get()
+    private readonly ITaskBusiness _taskBusiness;
+
+    public TaskApiController(ITaskBusiness taskBusiness)
     {
-        var task = await taskBusiness.GetTask(id: null);
-        return Ok(task);
+        _taskBusiness = taskBusiness;
     }
 
-    // GET: api/TaskApi/5
-    [HttpGet("{id}")]
-    public async Task<IActionResult> Get(int id)
-    {
-        var task = await taskBusiness.GetTask(id);
-        if (task == null || !task.Any())
-            return NotFound();
-        return Ok(task.First());
-    }
-    */
     // POST: api/TaskApi
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] TaskModel task)
@@ -35,7 +23,11 @@ public class TaskApiController(ITaskBusiness taskBusiness) : ControllerBase
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
-        var result = await taskBusiness.SaveTaskAsync(task);
+        // ✅ IMPORTANTE: Crear siempre con Approved = null
+        task.Approved = null;
+        task.CreatedAt = DateTime.UtcNow;
+
+        var result = await _taskBusiness.SaveTaskAsync(task);
         return result ? Ok(task) : BadRequest("Failed to create task");
     }
 
@@ -47,7 +39,7 @@ public class TaskApiController(ITaskBusiness taskBusiness) : ControllerBase
             return BadRequest(ModelState);
 
         task.Id = id;
-        var result = await taskBusiness.SaveTaskAsync(task);
+        var result = await _taskBusiness.SaveTaskAsync(task);
         return result ? Ok(task) : BadRequest("Failed to update task");
     }
 
@@ -55,7 +47,7 @@ public class TaskApiController(ITaskBusiness taskBusiness) : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-        var result = await taskBusiness.DeleteTaskAsync(id);
+        var result = await _taskBusiness.DeleteTaskAsync(id);
         return result ? Ok() : NotFound();
     }
 }

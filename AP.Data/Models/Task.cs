@@ -13,7 +13,9 @@ public partial class Task
 
     public string Status { get; set; } = null!;
 
-    public DateTime? DueDate { get; set; }
+    public DateTime DueDate { get; set; }
 
-    public DateTime CreatedAt { get; set; }
+    public DateTime? CreatedAt { get; set; }
+
+    public bool? Approved { get; set; }
 }

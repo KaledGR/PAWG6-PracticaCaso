@@ -1,0 +1,228 @@
+﻿@model IEnumerable<AP.Models.DTOs.TaskDTO>
+
+@{
+    ViewData["Title"] = "Aprobaciones";
+    var pendingTasks = Model.Where(t => !t.Approved.HasValue).Count();
+    var approvedTasks = Model.Where(t => t.Approved == true).Count();
+    var deniedTasks = Model.Where(t => t.Approved == false).Count();
+}
+
+<div class="container mt-4">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4 page-header">
+        <div>
+            <h1 class="page-title">
+                <i class="bi bi-check-square"></i> Aprobaciones
+            </h1>
+            <p class="page-subtitle">Gestiona las solicitudes de tareas</p>
+        </div>
+    </div>
+
+    <!-- Alertas -->
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="bi bi-check-circle-fill"></i> @TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-triangle-fill"></i> @TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <!-- Estadísticas -->
+    <div class="stats-container">
+        <div class="stat-card">
+            <div class="stat-icon warning">
+                <i class="bi bi-clock-history"></i>
+            </div>
+            <div class="stat-value">@pendingTasks</div>
+            <div class="stat-label">Pendientes de Aprobación</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon success">
+                <i class="bi bi-check-circle"></i>
+            </div>
+            <div class="stat-value">@approvedTasks</div>
+            <div class="stat-label">Aprobadas</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon primary">
+                <i class="bi bi-x-circle"></i>
+            </div>
+            <div class="stat-value">@deniedTasks</div>
+            <div class="stat-label">Denegadas</div>
+        </div>
+    </div>
+
+    <!-- Filtros -->
+    <div class="d-flex gap-2 mb-3">
+        <button class="btn btn-outline-secondary btn-modern filter-btn active" data-filter="all">
+            <i class="bi bi-list"></i> Todas
+        </button>
+        <button class="btn btn-outline-warning btn-modern filter-btn" data-filter="pending">
+            <i class="bi bi-clock"></i> Pendientes
+        </button>
+        <button class="btn btn-outline-success btn-modern filter-btn" data-filter="approved">
+            <i class="bi bi-check-circle"></i> Aprobadas
+        </button>
+        <button class="btn btn-outline-danger btn-modern filter-btn" data-filter="denied">
+            <i class="bi bi-x-circle"></i> Denegadas
+        </button>
+    </div>
+
+    <!-- Tabla de Tareas -->
+    <div class="tasks-card">
+        <div class="card-body p-0">
+            @if (Model.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-modern">
+                        <thead>
+                            <tr>
+                                <th width="60">ID</th>
+                                <th>Nombre</th>
+                                <th width="150">Estado Aprobación</th>
+                                <th width="120">Estado Tarea</th>
+                                <th width="150">Vencimiento</th>
+                                <th width="150">Creación</th>
+                                <th width="180" class="text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="approvalsTableBody">
+                            @foreach (var task in Model)
+                            {
+                                var approvalStatus = !task.Approved.HasValue ? "pending" : (task.Approved.Value ? "approved" : "denied");
+                                var canApprove = !task.Approved.HasValue ||
+                                (task.Approved == false && task.CreatedAt.HasValue &&
+                                (DateTime.UtcNow - task.CreatedAt.Value).TotalHours < 24);
+
+                                <tr class="approval-row" data-approval-status="@approvalStatus">
+                                    <td class="fw-bold text-muted">#@task.Id</td>
+                                    <td>
+                                        <div class="fw-semibold">@task.Name</div>
+                                        @if (!string.IsNullOrEmpty(task.Description))
+                                        {
+                                            <small class="text-muted">@(task.Description.Length > 50 ? task.Description.Substring(0, 50) + "..." : task.Description)</small>
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (!task.Approved.HasValue)
+                                        {
+                                            <span class="badge badge-modern bg-warning">
+                                                <i class="bi bi-clock-history"></i> Pendiente
+                                            </span>
+                                        }
+                                        else if (task.Approved.Value)
+                                        {
+                                            <span class="badge badge-modern bg-success">
+                                                <i class="bi bi-check-circle-fill"></i> Aprobada
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-danger">
+                                                <i class="bi bi-x-circle-fill"></i> Denegada
+                                            </span>
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (task.Status == "Completada")
+                                        {
+                                            <span class="badge bg-success">✓ Completada</span>
+                                        }
+                                        else if (task.Status == "En Progreso")
+                                        {
+                                            <span class="badge bg-info">⏳ En Progreso</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">🕐 Pendiente</span>
+                                        }
+                                    </td>
+                                    <td class="text-muted">
+                                        @(task.DueDate?.ToString("dd/MM/yyyy") ?? "Sin fecha")
+                                    </td>
+                                    <td class="text-muted">
+                                        <small>@task.CreatedAt?.ToString("dd/MM/yyyy HH:mm")</small>
+                                    </td>
+                                    <td class="text-center">
+                                        @if (canApprove)
+                                        {
+                                            <form asp-action="Approve" method="post" style="display: inline;">
+                                                <input type="hidden" name="taskId" value="@task.Id" />
+                                                <button type="submit" class="btn btn-sm btn-success"
+                                                        onclick="return confirm('¿Aprobar esta tarea?')">
+                                                    <i class="bi bi-check-circle"></i> Aprobar
+                                                </button>
+                                            </form>
+
+                                            @if (!task.Approved.HasValue)
+                                            {
+                                                <form asp-action="Deny" method="post" style="display: inline;">
+                                                    <input type="hidden" name="taskId" value="@task.Id" />
+                                                    <button type="submit" class="btn btn-sm btn-danger"
+                                                            onclick="return confirm('¿Denegar esta tarea?')">
+                                                        <i class="bi bi-x-circle"></i> Denegar
+                                                    </button>
+                                                </form>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">
+                                                <i class="bi bi-lock"></i> Bloqueada (>24h)
+                                            </span>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="empty-state">
+                    <div class="empty-state-icon">
+                        <i class="bi bi-inbox"></i>
+                    </div>
+                    <h3>No hay tareas para aprobar</h3>
+                    <p>Las solicitudes aparecerán aquí cuando se creen</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Filtros por estado de aprobación
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Actualizar botón activo
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const filter = this.dataset.filter;
+                const rows = document.querySelectorAll('.approval-row');
+
+                rows.forEach(row => {
+                    if (filter === 'all') {
+                        row.style.display = '';
+                    } else {
+                        const status = row.dataset.approvalStatus;
+                        row.style.display = status === filter ? '' : 'none';
+                    }
+                });
+            });
+        });
+    </script>
+}

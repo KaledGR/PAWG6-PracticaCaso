@@ -1,5 +1,5 @@
-﻿using System.Text.Json.Serialization;
-
+﻿// AP.Models/DTOs/TaskDTO.cs
+using System.Text.Json.Serialization;
 
 namespace AP.Models.DTOs
 {
@@ -21,6 +21,9 @@ namespace AP.Models.DTOs
         public DateTime? DueDate { get; set; }
 
         [JsonPropertyName("createdAt")]
-        public DateTime CreatedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
+
+        [JsonPropertyName("approved")]
+        public bool? Approved { get; set; }  // ✅ NUEVO CAMPO
     }
 }

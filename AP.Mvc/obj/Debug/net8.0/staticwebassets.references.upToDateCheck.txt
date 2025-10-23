@@ -20,3 +20,10 @@ C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Api\obj\Debug\net8.0\s
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Api\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Api\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Api\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Api\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Api\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Api\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Api\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Api\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Api\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Api\obj\Debug\net8.0\staticwebassets.build.json

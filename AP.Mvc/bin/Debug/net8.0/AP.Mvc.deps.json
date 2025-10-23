@@ -668,6 +668,7 @@
         "dependencies": {
           "AP.Core": "1.0.0",
           "AP.Data": "1.0.0",
+          "AP.Models": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.10",
           "Swashbuckle.AspNetCore": "6.6.2"
         },

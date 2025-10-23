@@ -1,12 +1,14 @@
-﻿@* AP.Mvc/Views/Tasks/Index.cshtml *@
-@model IEnumerable<AP.Models.DTOs.TaskDTO>
+﻿@model IEnumerable<AP.Models.DTOs.TaskDTO>
 
 @{
-    ViewData["Title"] = "Gestión de Tareas";
+    ViewData["Title"] = "Mis Tareas";
+    var currentUser = ViewBag.CurrentUser as AP.Models.DTOs.UserDTO;
+
+    // Estadísticas - Solo de tareas aprobadas y denegadas
     var totalTasks = Model.Count();
-    var completedTasks = Model.Count(t => t.Status == "Completada");
-    var inProgressTasks = Model.Count(t => t.Status == "En Progreso");
-    var pendingTasks = Model.Count(t => t.Status == "Pendiente");
+    var approvedTasks = Model.Where(t => t.Approved == true).Count();
+    var deniedTasks = Model.Where(t => t.Approved == false).Count();
+    var completedTasks = Model.Where(t => t.Status == "Completada").Count();
 }
 
 <div class="container mt-4">
@@ -16,7 +18,13 @@
             <h1 class="page-title">
                 <i class="bi bi-clipboard-check"></i> Mis Tareas
             </h1>
-            <p class="page-subtitle">Administra y organiza todas tus tareas</p>
+            <p class="page-subtitle">
+                Bienvenido, <strong>@currentUser?.Username</strong>
+                @if (!string.IsNullOrEmpty(currentUser?.RoleName))
+                {
+                    <span class="badge bg-primary ms-2">@currentUser.RoleName</span>
+                }
+            </p>
         </div>
         <button type="button" class="btn btn-modern btn-gradient-primary" data-bs-toggle="modal" data-bs-target="#createModal">
             <i class="bi bi-plus-circle"></i> Nueva Tarea
@@ -40,6 +48,13 @@
         </div>
     }
 
+    <!-- Info Box -->
+    <div class="alert alert-info mb-4">
+        <i class="bi bi-info-circle"></i>
+        <strong>Nota:</strong> Solo puedes ver tareas que han sido <strong>aprobadas</strong> o <strong>denegadas</strong>.
+        Las tareas pendientes de aprobación no se muestran aquí.
+    </div>
+
     <!-- Estadísticas -->
     <div class="stats-container">
         <div class="stat-card">
@@ -54,24 +69,24 @@
             <div class="stat-icon success">
                 <i class="bi bi-check-circle"></i>
             </div>
-            <div class="stat-value">@completedTasks</div>
-            <div class="stat-label">Completadas</div>
+            <div class="stat-value">@approvedTasks</div>
+            <div class="stat-label">Aprobadas</div>
         </div>
 
         <div class="stat-card">
             <div class="stat-icon warning">
-                <i class="bi bi-hourglass-split"></i>
+                <i class="bi bi-x-circle"></i>
             </div>
-            <div class="stat-value">@inProgressTasks</div>
-            <div class="stat-label">En Progreso</div>
+            <div class="stat-value">@deniedTasks</div>
+            <div class="stat-label">Denegadas</div>
         </div>
 
         <div class="stat-card">
             <div class="stat-icon info">
-                <i class="bi bi-clock"></i>
+                <i class="bi bi-check-square"></i>
             </div>
-            <div class="stat-value">@pendingTasks</div>
-            <div class="stat-label">Pendientes</div>
+            <div class="stat-value">@completedTasks</div>
+            <div class="stat-label">Completadas</div>
         </div>
     </div>
 
@@ -86,14 +101,11 @@
             <button class="btn btn-outline-secondary btn-modern filter-btn active" data-filter="all">
                 <i class="bi bi-list"></i> Todas
             </button>
-            <button class="btn btn-outline-secondary btn-modern filter-btn" data-filter="Pendiente">
-                <i class="bi bi-clock"></i> Pendientes
+            <button class="btn btn-outline-success btn-modern filter-btn" data-filter="approved">
+                <i class="bi bi-check-circle"></i> Aprobadas
             </button>
-            <button class="btn btn-outline-success btn-modern filter-btn" data-filter="Completada">
-                <i class="bi bi-check-circle"></i> Completadas
-            </button>
-            <button class="btn btn-outline-warning btn-modern filter-btn" data-filter="En Progreso">
-                <i class="bi bi-hourglass"></i> En Progreso
+            <button class="btn btn-outline-danger btn-modern filter-btn" data-filter="denied">
+                <i class="bi bi-x-circle"></i> Denegadas
             </button>
         </div>
     </div>
@@ -109,18 +121,20 @@
                             <tr>
                                 <th width="60">ID</th>
                                 <th>Nombre</th>
-                                <th width="150">Estado</th>
+                                <th width="150">Estado Aprobación</th>
+                                <th width="150">Estado Tarea</th>
                                 <th width="150">Vencimiento</th>
                                 <th width="150">Creación</th>
                                 <th width="140" class="text-center">Acciones</th>
                             </tr>
                         </thead>
                         <tbody id="tasksTableBody">
-                            @foreach (var task in Model)
+                            @foreach (var task in Model.OrderByDescending(t => t.Approved).ThenByDescending(t => t.CreatedAt))
                             {
-                                var isOverdue = task.DueDate.HasValue && task.DueDate.Value < DateTime.Now && task.Status != "Completada";
+                                var isOverdue = task.DueDate < DateTime.Now && task.Status != "Completada";
+                                var approvalClass = task.Approved == true ? "approved" : "denied";
 
-                                <tr data-task-status="@task.Status" class="task-row">
+                                <tr data-approval-status="@approvalClass" class="task-row">
                                     <td class="fw-bold text-muted">#@task.Id</td>
                                     <td class="task-name">
                                         <div class="d-flex align-items-center">
@@ -132,6 +146,20 @@
                                                 }
                                             </div>
                                         </div>
+                                    </td>
+                                    <td>
+                                        @if (task.Approved == true)
+                                        {
+                                            <span class="badge badge-modern bg-success">
+                                                <i class="bi bi-check-circle-fill"></i> Aprobada
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-danger">
+                                                <i class="bi bi-x-circle-fill"></i> Denegada
+                                            </span>
+                                        }
                                     </td>
                                     <td>
                                         @if (task.Status == "Completada")
@@ -154,14 +182,14 @@
                                         }
                                     </td>
                                     <td>
-                                        @if (task.DueDate.HasValue)
+                                        @if (task.DueDate != default(DateTime))
                                         {
                                             <div class="@(isOverdue ? "text-danger fw-bold" : "")">
                                                 @if (isOverdue)
                                                 {
                                                     <i class="bi bi-exclamation-triangle-fill"></i>
                                                 }
-                                                @task.DueDate.Value.ToString("dd/MM/yyyy")
+                                                @task.DueDate?.ToString("dd/MM/yyyy")
                                             </div>
                                         }
                                         else
@@ -170,25 +198,25 @@
                                         }
                                     </td>
                                     <td class="text-muted">
-                                        <small>@task.CreatedAt.ToString("dd/MM/yyyy")</small>
+                                        <small>@task.CreatedAt?.ToString("dd/MM/yyyy HH:mm")</small>
                                     </td>
                                     <td>
                                         <div class="d-flex gap-2 justify-content-center">
                                             <button type="button" class="btn btn-action btn-info"
-                                                    onclick="showDetails(@task.Id, '@Html.Raw(task.Name.Replace("'", "\\'"))', '@Html.Raw((task.Description ?? "Sin descripción").Replace("'", "\\'"))', '@task.Status', '@(task.DueDate?.ToString("dd/MM/yyyy") ?? "Sin fecha")', '@task.CreatedAt.ToString("dd/MM/yyyy HH:mm")')"
+                                                    onclick="showDetails(@task.Id, '@Html.Raw(task.Name.Replace("'", "\\'"))', '@Html.Raw((task.Description ?? "Sin descripción").Replace("'", "\\'"))', '@task.Status', '@task.DueDate?.ToString("dd/MM/yyyy")', '@task.CreatedAt?.ToString("dd/MM/yyyy HH:mm")', @(task.Approved == true ? "true" : "false"))"
                                                     data-bs-toggle="modal" data-bs-target="#detailsModal"
-                                                    data-bs-toggle-tooltip="tooltip" title="Ver Detalles">
+                                                    title="Ver Detalles">
                                                 <i class="bi bi-eye"></i>
                                             </button>
                                             <button type="button" class="btn btn-action btn-warning"
                                                     onclick="loadEditForm(@task.Id)"
-                                                    data-bs-toggle-tooltip="tooltip" title="Editar">
+                                                    title="Editar">
                                                 <i class="bi bi-pencil"></i>
                                             </button>
                                             <button type="button" class="btn btn-action btn-danger"
-                                                    onclick="showDeleteConfirm(@task.Id, '@Html.Raw(task.Name.Replace("'", "\\'"))', '@Html.Raw((task.Description ?? "Sin descripción").Replace("'", "\\'"))', '@task.Status', '@(task.DueDate?.ToString("dd/MM/yyyy") ?? "Sin fecha")', '@task.CreatedAt.ToString("dd/MM/yyyy HH:mm")')"
+                                                    onclick="showDeleteConfirm(@task.Id, '@Html.Raw(task.Name.Replace("'", "\\'"))')"
                                                     data-bs-toggle="modal" data-bs-target="#deleteModal"
-                                                    data-bs-toggle-tooltip="tooltip" title="Eliminar">
+                                                    title="Eliminar">
                                                 <i class="bi bi-trash"></i>
                                             </button>
                                         </div>
@@ -205,8 +233,8 @@
                     <div class="empty-state-icon">
                         <i class="bi bi-inbox"></i>
                     </div>
-                    <h3>No hay tareas registradas</h3>
-                    <p>Comienza a organizar tu trabajo creando tu primera tarea</p>
+                    <h3>No hay tareas aprobadas o denegadas</h3>
+                    <p>Crea tu primera tarea y espera la aprobación</p>
                     <button type="button" class="btn btn-modern btn-gradient-primary" data-bs-toggle="modal" data-bs-target="#createModal">
                         <i class="bi bi-plus-circle"></i> Crear Primera Tarea
                     </button>
@@ -217,39 +245,43 @@
 </div>
 
 <!-- Modal: Crear Tarea -->
-<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+<div class="modal fade" id="createModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title" id="createModalLabel">
+                <h5 class="modal-title">
                     <i class="bi bi-plus-circle"></i> Crear Nueva Tarea
                 </h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
             <form asp-action="Create" method="post">
                 <div class="modal-body">
+                    <div class="alert alert-warning">
+                        <i class="bi bi-info-circle"></i> La tarea será creada como <strong>Pendiente de Aprobación</strong>
+                    </div>
+
                     <div class="mb-3">
-                        <label for="createName" class="form-label">
+                        <label for="Name" class="form-label">
                             <i class="bi bi-card-text"></i> Nombre de la Tarea
                         </label>
-                        <input type="text" class="form-control" id="createName" name="Name"
+                        <input type="text" class="form-control" id="Name" name="Name"
                                placeholder="Ej: Completar el proyecto" required />
                     </div>
 
                     <div class="mb-3">
-                        <label for="createDescription" class="form-label">
+                        <label for="Description" class="form-label">
                             <i class="bi bi-file-text"></i> Descripción
                         </label>
-                        <textarea class="form-control" id="createDescription" name="Description" rows="4"
+                        <textarea class="form-control" id="Description" name="Description" rows="4"
                                   placeholder="Describe los detalles de la tarea..."></textarea>
                     </div>
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="createStatus" class="form-label">
+                            <label for="Status" class="form-label">
                                 <i class="bi bi-flag"></i> Estado
                             </label>
-                            <select class="form-select" id="createStatus" name="Status" required>
+                            <select class="form-select" id="Status" name="Status" required>
                                 <option value="Pendiente" selected>🕐 Pendiente</option>
                                 <option value="En Progreso">⏳ En Progreso</option>
                                 <option value="Completada">✅ Completada</option>
@@ -257,10 +289,10 @@
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <label for="createDueDate" class="form-label">
+                            <label for="DueDate" class="form-label">
                                 <i class="bi bi-calendar-event"></i> Fecha de Vencimiento
                             </label>
-                            <input type="date" class="form-control" id="createDueDate" name="DueDate" />
+                            <input type="date" class="form-control" id="DueDate" name="DueDate" required />
                         </div>
                     </div>
                 </div>
@@ -277,147 +309,116 @@
     </div>
 </div>
 
-<!-- Modal: Editar Tarea -->
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+<!-- Modal: Editar (igual que antes) -->
+<div class="modal fade" id="editModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-warning">
-                <h5 class="modal-title text-white" id="editModalLabel">
+                <h5 class="modal-title text-white">
                     <i class="bi bi-pencil"></i> Editar Tarea
                 </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
-            <form asp-action="Edit" method="post" id="editForm">
+            <form asp-action="Edit" method="post">
                 <input type="hidden" id="editId" name="Id" />
                 <input type="hidden" id="editCreatedAt" name="CreatedAt" />
+                <input type="hidden" id="editApproved" name="Approved" />
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="editName" class="form-label">
-                            <i class="bi bi-card-text"></i> Nombre de la Tarea
-                        </label>
+                        <label for="editName" class="form-label">Nombre</label>
                         <input type="text" class="form-control" id="editName" name="Name" required />
                     </div>
-
                     <div class="mb-3">
-                        <label for="editDescription" class="form-label">
-                            <i class="bi bi-file-text"></i> Descripción
-                        </label>
+                        <label for="editDescription" class="form-label">Descripción</label>
                         <textarea class="form-control" id="editDescription" name="Description" rows="4"></textarea>
                     </div>
-
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="editStatus" class="form-label">
-                                <i class="bi bi-flag"></i> Estado
-                            </label>
+                            <label for="editStatus" class="form-label">Estado</label>
                             <select class="form-select" id="editStatus" name="Status" required>
-                                <option value="Pendiente">🕐 Pendiente</option>
-                                <option value="En Progreso">⏳ En Progreso</option>
-                                <option value="Completada">✅ Completada</option>
+                                <option value="Pendiente">Pendiente</option>
+                                <option value="En Progreso">En Progreso</option>
+                                <option value="Completada">Completada</option>
                             </select>
                         </div>
-
                         <div class="col-md-6 mb-3">
-                            <label for="editDueDate" class="form-label">
-                                <i class="bi bi-calendar-event"></i> Fecha de Vencimiento
-                            </label>
-                            <input type="date" class="form-control" id="editDueDate" name="DueDate" />
+                            <label for="editDueDate" class="form-label">Vencimiento</label>
+                            <input type="date" class="form-control" id="editDueDate" name="DueDate" required />
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-modern" data-bs-dismiss="modal">
-                        <i class="bi bi-x-circle"></i> Cancelar
-                    </button>
-                    <button type="submit" class="btn btn-modern btn-gradient-primary">
-                        <i class="bi bi-save"></i> Guardar Cambios
-                    </button>
+                    <button type="button" class="btn btn-secondary btn-modern" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-modern btn-gradient-primary">Guardar</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 
-<!-- Modal: Ver Detalles -->
-<div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+<!-- Modal: Detalles -->
+<div class="modal fade" id="detailsModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-info text-white">
-                <h5 class="modal-title" id="detailsModalLabel">
+                <h5 class="modal-title">
                     <i class="bi bi-info-circle"></i> Detalles de la Tarea
                 </h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
                 <dl class="row">
-                    <dt class="col-sm-3"><i class="bi bi-hash"></i> ID:</dt>
+                    <dt class="col-sm-3">ID:</dt>
                     <dd class="col-sm-9" id="detailId"></dd>
 
-                    <dt class="col-sm-3"><i class="bi bi-card-text"></i> Nombre:</dt>
+                    <dt class="col-sm-3">Nombre:</dt>
                     <dd class="col-sm-9 fw-bold" id="detailName"></dd>
 
-                    <dt class="col-sm-3"><i class="bi bi-file-text"></i> Descripción:</dt>
+                    <dt class="col-sm-3">Descripción:</dt>
                     <dd class="col-sm-9" id="detailDescription"></dd>
 
-                    <dt class="col-sm-3"><i class="bi bi-flag"></i> Estado:</dt>
+                    <dt class="col-sm-3">Estado Aprobación:</dt>
+                    <dd class="col-sm-9" id="detailApprovalStatus"></dd>
+
+                    <dt class="col-sm-3">Estado Tarea:</dt>
                     <dd class="col-sm-9" id="detailStatus"></dd>
 
-                    <dt class="col-sm-3"><i class="bi bi-calendar-event"></i> Vencimiento:</dt>
+                    <dt class="col-sm-3">Vencimiento:</dt>
                     <dd class="col-sm-9" id="detailDueDate"></dd>
 
-                    <dt class="col-sm-3"><i class="bi bi-clock-history"></i> Creación:</dt>
+                    <dt class="col-sm-3">Creación:</dt>
                     <dd class="col-sm-9" id="detailCreatedAt"></dd>
                 </dl>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary btn-modern" data-bs-dismiss="modal">
-                    <i class="bi bi-x-circle"></i> Cerrar
-                </button>
+                <button type="button" class="btn btn-secondary btn-modern" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Modal: Confirmar Eliminación -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+<!-- Modal: Eliminar -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-danger text-white">
-                <h5 class="modal-title" id="deleteModalLabel">
+                <h5 class="modal-title">
                     <i class="bi bi-exclamation-triangle"></i> Confirmar Eliminación
                 </h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
                 <div class="alert alert-warning">
-                    <i class="bi bi-exclamation-triangle"></i>
-                    <strong>Advertencia:</strong> ¿Está seguro que desea eliminar esta tarea?
+                    ¿Está seguro que desea eliminar esta tarea?
                 </div>
-
-                <dl class="row">
-                    <dt class="col-sm-4">ID:</dt>
-                    <dd class="col-sm-8" id="deleteId"></dd>
-
-                    <dt class="col-sm-4">Nombre:</dt>
-                    <dd class="col-sm-8 fw-bold" id="deleteName"></dd>
-
-                    <dt class="col-sm-4">Estado:</dt>
-                    <dd class="col-sm-8" id="deleteStatus"></dd>
-                </dl>
-
-                <p class="text-muted mb-0">
-                    <small><i class="bi bi-info-circle"></i> Esta acción no se puede deshacer.</small>
-                </p>
+                <p><strong>Tarea:</strong> <span id="deleteName"></span></p>
+                <p class="text-muted mb-0"><small>Esta acción no se puede deshacer.</small></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary btn-modern" data-bs-dismiss="modal">
-                    <i class="bi bi-x-circle"></i> Cancelar
-                </button>
-                <form asp-action="Delete" method="post" style="display: inline;" id="deleteForm">
+                <button type="button" class="btn btn-secondary btn-modern" data-bs-dismiss="modal">Cancelar</button>
+                <form asp-action="Delete" method="post" style="display: inline;">
                     <input type="hidden" id="deleteTaskId" name="id" />
-                    <button type="submit" class="btn btn-danger btn-modern">
-                        <i class="bi bi-trash"></i> Confirmar Eliminación
-                    </button>
+                    <button type="submit" class="btn btn-danger btn-modern">Confirmar</button>
                 </form>
             </div>
         </div>
@@ -426,117 +427,73 @@
 
 @section Scripts {
     <script>
-        // Inicializar tooltips
-        document.addEventListener('DOMContentLoaded', function() {
-            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle-tooltip="tooltip"]'));
-            tooltipTriggerList.map(function (tooltipTriggerEl) {
-                return new bootstrap.Tooltip(tooltipTriggerEl);
-            });
-        });
-
-        // Búsqueda en tiempo real
-        document.getElementById('searchInput').addEventListener('keyup', function() {
+        // Búsqueda
+        document.getElementById('searchInput')?.addEventListener('keyup', function() {
             const searchValue = this.value.toLowerCase();
-            const rows = document.querySelectorAll('.task-row');
-
-            rows.forEach(row => {
+            document.querySelectorAll('.task-row').forEach(row => {
                 const taskName = row.querySelector('.task-name').textContent.toLowerCase();
-                if (taskName.includes(searchValue)) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
+                row.style.display = taskName.includes(searchValue) ? '' : 'none';
             });
         });
 
-        // Filtros por estado
+        // Filtros
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', function() {
-                // Actualizar botón activo
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
 
                 const filter = this.dataset.filter;
-                const rows = document.querySelectorAll('.task-row');
-
-                rows.forEach(row => {
+                document.querySelectorAll('.task-row').forEach(row => {
                     if (filter === 'all') {
                         row.style.display = '';
                     } else {
-                        const status = row.dataset.taskStatus;
+                        const status = row.dataset.approvalStatus;
                         row.style.display = status === filter ? '' : 'none';
                     }
                 });
             });
         });
 
-        // Función para mostrar detalles
-        function showDetails(id, name, description, status, dueDate, createdAt) {
+        function showDetails(id, name, description, status, dueDate, createdAt, approved) {
             document.getElementById('detailId').textContent = id;
             document.getElementById('detailName').textContent = name;
             document.getElementById('detailDescription').textContent = description;
-
-            let statusBadge = '';
-            if (status === 'Completada') {
-                statusBadge = '<span class="badge badge-modern bg-success"><i class="bi bi-check-circle-fill"></i> Completada</span>';
-            } else if (status === 'En Progreso') {
-                statusBadge = '<span class="badge badge-modern bg-warning"><i class="bi bi-hourglass-split"></i> En Progreso</span>';
-            } else {
-                statusBadge = '<span class="badge badge-modern bg-secondary"><i class="bi bi-clock"></i> Pendiente</span>';
-            }
-            document.getElementById('detailStatus').innerHTML = statusBadge;
-
+            document.getElementById('detailStatus').innerHTML = `<span class="badge bg-secondary">${status}</span>`;
             document.getElementById('detailDueDate').textContent = dueDate;
             document.getElementById('detailCreatedAt').textContent = createdAt;
+
+            const approvalHtml = approved === 'true'
+                ? '<span class="badge bg-success">✓ Aprobada</span>'
+                : '<span class="badge bg-danger">✗ Denegada</span>';
+            document.getElementById('detailApprovalStatus').innerHTML = approvalHtml;
         }
 
-        // Función para cargar el formulario de edición
         async function loadEditForm(id) {
             try {
                 const response = await fetch(`/Tasks/GetTaskData/${id}`);
-                if (!response.ok) throw new Error('Error al cargar la tarea');
-
                 const task = await response.json();
 
                 document.getElementById('editId').value = task.id;
                 document.getElementById('editName').value = task.name;
                 document.getElementById('editDescription').value = task.description || '';
                 document.getElementById('editStatus').value = task.status;
+                document.getElementById('editApproved').value = task.approved;
+                document.getElementById('editCreatedAt').value = task.createdAt;
 
                 if (task.dueDate) {
                     const date = new Date(task.dueDate);
-                    const formattedDate = date.toISOString().split('T')[0];
-                    document.getElementById('editDueDate').value = formattedDate;
-                } else {
-                    document.getElementById('editDueDate').value = '';
+                    document.getElementById('editDueDate').value = date.toISOString().split('T')[0];
                 }
 
-                document.getElementById('editCreatedAt').value = task.createdAt;
-
-                const editModal = new bootstrap.Modal(document.getElementById('editModal'));
-                editModal.show();
+                new bootstrap.Modal(document.getElementById('editModal')).show();
             } catch (error) {
-                console.error('Error:', error);
                 alert('Error al cargar los datos de la tarea');
             }
         }
 
-        // Función para confirmar eliminación
-        function showDeleteConfirm(id, name, description, status, dueDate, createdAt) {
-            document.getElementById('deleteId').textContent = id;
-            document.getElementById('deleteName').textContent = name;
-
-            let statusBadge = '';
-            if (status === 'Completada') {
-                statusBadge = '<span class="badge badge-modern bg-success"><i class="bi bi-check-circle-fill"></i> Completada</span>';
-            } else if (status === 'En Progreso') {
-                statusBadge = '<span class="badge badge-modern bg-warning"><i class="bi bi-hourglass-split"></i> En Progreso</span>';
-            } else {
-                statusBadge = '<span class="badge badge-modern bg-secondary"><i class="bi bi-clock"></i> Pendiente</span>';
-            }
-            document.getElementById('deleteStatus').innerHTML = statusBadge;
-
+        function showDeleteConfirm(id, name) {
             document.getElementById('deleteTaskId').value = id;
+            document.getElementById('deleteName').textContent = name;
         }
     </script>
 }
