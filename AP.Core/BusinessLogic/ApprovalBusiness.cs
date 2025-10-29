@@ -6,6 +6,8 @@ using System.Data;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Model;
 using TaskModel = AP.Data.Models.Task;
 
+/*Me ayude con IA (Claude) para tener una logica de negocio acorde con los requerimientos solicitados*/
+
 namespace AP.Core.BusinessLogic
 {
     public interface IApprovalBusiness

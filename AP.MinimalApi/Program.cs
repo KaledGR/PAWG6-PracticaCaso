@@ -23,7 +23,6 @@ builder.Services.AddScoped<IRepositoryUser, RepositoryUser>();
 builder.Services.AddScoped<IRepositoryRole, RepositoryRole>();
 builder.Services.AddScoped<IRepositoryUserRole, RepositoryUserRole>();
 
-// Asegúrate de registrar los servicios que faltan
 builder.Services.AddScoped<IAuthBusiness, AuthBusiness>(); 
 builder.Services.AddScoped<IUserBusiness, UserBusiness>(); 
 
@@ -92,6 +91,8 @@ app.MapGet("/api/TaskApi/status/{status}", async (string status, IRepositoryTask
 .WithName("GetTasksByStatus")
 .WithOpenApi()
 .WithTags("Tasks");
+
+/*Me ayude con IA (Claude) para crear un endpoint de login que valide usuario y contraseña*/
 
 // ============================================
 // LOGIN ENDPOINT (Minimal API)
