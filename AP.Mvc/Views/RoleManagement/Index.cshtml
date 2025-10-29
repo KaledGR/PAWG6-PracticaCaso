@@ -1,0 +1,263 @@
+﻿@model IEnumerable<AP.Models.DTOs.UserDTO>
+
+@{
+    ViewData["Title"] = "Gestión de Roles";
+    var roles = ViewBag.Roles as IEnumerable<AP.Models.DTOs.RoleDTO>;
+    var usersWithRoles = Model.Count(u => u.RoleId.HasValue);
+    var usersWithoutRoles = Model.Count(u => !u.RoleId.HasValue);
+}
+
+<div class="container mt-4">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4 page-header">
+        <div>
+            <h1 class="page-title">
+                <i class="bi bi-person-badge"></i> Gestión de Roles
+            </h1>
+            <p class="page-subtitle">Asigna y actualiza roles de usuarios</p>
+        </div>
+    </div>
+
+    <!-- Alertas -->
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="bi bi-check-circle-fill"></i> @TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-triangle-fill"></i> @TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <!-- Estadísticas -->
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="stat-card">
+                <div class="stat-icon primary">
+                    <i class="bi bi-people"></i>
+                </div>
+                <div class="stat-value">@Model.Count()</div>
+                <div class="stat-label">Total Usuarios</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card">
+                <div class="stat-icon success">
+                    <i class="bi bi-person-check"></i>
+                </div>
+                <div class="stat-value">@usersWithRoles</div>
+                <div class="stat-label">Con Rol Asignado</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card">
+                <div class="stat-icon warning">
+                    <i class="bi bi-person-x"></i>
+                </div>
+                <div class="stat-value">@usersWithoutRoles</div>
+                <div class="stat-label">Sin Rol Asignado</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Información -->
+    <div class="alert alert-info mb-4">
+        <i class="bi bi-info-circle"></i>
+        <strong>Importante:</strong>
+        <ul class="mb-0 mt-2">
+            <li>Un usuario solo puede tener <strong>UN rol</strong> asignado</li>
+            <li>No se puede dejar a un usuario sin rol una vez asignado</li>
+            <li>Para cambiar el rol, selecciona el nuevo rol y presiona "Actualizar"</li>
+        </ul>
+    </div>
+
+    <!-- Tabla de Gestión de Roles -->
+    <div class="tasks-card">
+        <div class="card-body p-0">
+            @if (Model.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-modern">
+                        <thead>
+                            <tr>
+                                <th width="80">ID</th>
+                                <th>Usuario</th>
+                                <th>Email</th>
+                                <th width="180">Rol Actual</th>
+                                <th width="220">Asignar/Cambiar Rol</th>
+                                <th width="120" class="text-center">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var user in Model.OrderBy(u => u.Username))
+                            {
+                                <tr>
+                                    <td class="fw-bold text-muted">#@user.UserId</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="user-avatar me-2">
+                                                <i class="bi bi-person-circle fs-4 text-primary"></i>
+                                            </div>
+                                            <div>
+                                                <div class="fw-semibold">@user.Username</div>
+                                                @if (!string.IsNullOrEmpty(user.FullName))
+                                                {
+                                                    <small class="text-muted">@user.FullName</small>
+                                                }
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <i class="bi bi-envelope"></i> @user.Email
+                                    </td>
+                                    <td>
+                                        @if (!string.IsNullOrEmpty(user.RoleName))
+                                        {
+                                            @if (user.RoleName == "Manager")
+                                            {
+                                                <span class="badge bg-primary">
+                                                    <i class="bi bi-star-fill"></i> @user.RoleName
+                                                </span>
+                                            }
+                                            else if (user.RoleName == "Admin")
+                                            {
+                                                <span class="badge bg-danger">
+                                                    <i class="bi bi-shield-fill"></i> @user.RoleName
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-success">
+                                                    <i class="bi bi-person-fill"></i> @user.RoleName
+                                                </span>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">
+                                                <i class="bi bi-dash-circle"></i> Sin Rol
+                                            </span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <form method="post" asp-action="@(user.RoleId.HasValue ? "UpdateRole" : "AssignRole")"
+                                              class="d-flex gap-2 align-items-center">
+                                            <input type="hidden" name="userId" value="@user.UserId" />
+
+                                            <select name="roleId" class="form-select form-select-sm" required>
+                                                <option value="">-- Seleccionar Rol --</option>
+                                                @foreach (var role in roles!)
+                                                {
+                                                    <option value="@role.RoleId" selected="@(user.RoleId == role.RoleId)">
+                                                        @role.RoleName - @role.Description
+                                                    </option>
+                                                }
+                                            </select>
+
+                                            <button type="submit" class="btn btn-sm btn-primary" style="white-space: nowrap;">
+                                                @if (user.RoleId.HasValue)
+                                                {
+                                                    <i class="bi bi-arrow-repeat"></i>
+                                                    <span>Actualizar</span>
+                                                }
+                                                else
+                                                {
+                                                    <i class="bi bi-save"></i>
+                                                    <span>Asignar</span>
+                                                }
+                                            </button>
+                                        </form>
+                                    </td>
+                                    <td class="text-center">
+                                        @if (user.IsActive)
+                                        {
+                                            <span class="badge bg-success">
+                                                <i class="bi bi-check-circle"></i> Activo
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-danger">
+                                                <i class="bi bi-x-circle"></i> Inactivo
+                                            </span>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="empty-state">
+                    <div class="empty-state-icon">
+                        <i class="bi bi-inbox"></i>
+                    </div>
+                    <h3>No hay usuarios registrados</h3>
+                    <p>Los usuarios aparecerán aquí cuando se registren</p>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Roles Disponibles -->
+    <div class="card mt-4">
+        <div class="card-header bg-light">
+            <h5 class="mb-0">
+                <i class="bi bi-list-stars"></i> Roles Disponibles
+            </h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                @foreach (var role in roles!)
+                {
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h6 class="card-title">
+                                    @if (role.RoleName == "Manager")
+                                    {
+                                        <i class="bi bi-star-fill text-primary"></i>
+                                    }
+                                    else if (role.RoleName == "Admin")
+                                    {
+                                        <i class="bi bi-shield-fill text-danger"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="bi bi-person-fill text-success"></i>
+                                    }
+                                    @role.RoleName
+                                </h6>
+                                <p class="card-text text-muted mb-0">@role.Description</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .user-avatar {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .form-select-sm {
+        font-size: 0.875rem;
+    }
+
+    .table-modern tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+</style>

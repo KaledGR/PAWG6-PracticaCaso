@@ -67,8 +67,10 @@ C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\bin\Debug\n
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\bin\Debug\net8.0\AP.Core.dll
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\bin\Debug\net8.0\AP.Data.dll
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\bin\Debug\net8.0\AP.Models.dll
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\bin\Debug\net8.0\AP.Core.pdb
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\bin\Debug\net8.0\AP.Data.pdb
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\bin\Debug\net8.0\AP.Models.pdb
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\obj\Debug\net8.0\AP.MinimalApi.csproj.AssemblyReference.cache
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\obj\Debug\net8.0\rpswa.dswa.cache.json
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\obj\Debug\net8.0\AP.MinimalApi.GeneratedMSBuildEditorConfig.editorconfig
@@ -86,10 +88,10 @@ C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\obj\Debug\n
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\obj\Debug\net8.0\AP.Minim.4C927915.Up2Date
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\obj\Debug\net8.0\AP.MinimalApi.dll
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\obj\Debug\net8.0\refint\AP.MinimalApi.dll
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\obj\Debug\net8.0\AP.MinimalApi.pdb
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\obj\Debug\net8.0\AP.MinimalApi.genruntimeconfig.cache
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\obj\Debug\net8.0\ref\AP.MinimalApi.dll
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.MinimalApi\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

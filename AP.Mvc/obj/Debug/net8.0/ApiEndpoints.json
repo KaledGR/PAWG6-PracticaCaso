@@ -1,6 +1,147 @@
 [
   {
-    "ContainingType": "PAW3.Api.Controllers.TaskApiController",
+    "ContainingType": "AP.Api.Controllers.ApprovalController",
+    "Method": "GetAllForApproval",
+    "RelativePath": "api/Approval/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AP.Api.Controllers.ApprovalController",
+    "Method": "ApproveTask",
+    "RelativePath": "api/Approval/approve",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AP.Models.DTOs.ApproveTaskDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AP.Api.Controllers.ApprovalController",
+    "Method": "GetApprovedOrDenied",
+    "RelativePath": "api/Approval/approved-denied",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AP.Api.Controllers.ApprovalController",
+    "Method": "CanBeApproved",
+    "RelativePath": "api/Approval/can-approve/{taskId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "taskId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AP.Api.Controllers.ApprovalController",
+    "Method": "DenyTask",
+    "RelativePath": "api/Approval/deny",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AP.Models.DTOs.ApproveTaskDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AP.Api.Controllers.RoleController",
+    "Method": "GetAllRoles",
+    "RelativePath": "api/Role",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AP.Api.Controllers.RoleController",
+    "Method": "AssignRole",
+    "RelativePath": "api/Role/assign",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AP.Models.DTOs.AssignRoleDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AP.Api.Controllers.RoleController",
+    "Method": "UpdateRole",
+    "RelativePath": "api/Role/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AP.Models.DTOs.AssignRoleDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AP.Api.Controllers.RoleController",
+    "Method": "GetUsersWithRoles",
+    "RelativePath": "api/Role/users-with-roles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AP.Api.Controllers.RoleController",
+    "Method": "ValidateRoleAssignment",
+    "RelativePath": "api/Role/validate/{userId}/{roleId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "roleId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AP.Api.Controllers.TaskApiController",
     "Method": "Post",
     "RelativePath": "api/TaskApi",
     "HttpMethod": "POST",
@@ -16,7 +157,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "PAW3.Api.Controllers.TaskApiController",
+    "ContainingType": "AP.Api.Controllers.TaskApiController",
     "Method": "Put",
     "RelativePath": "api/TaskApi/{id}",
     "HttpMethod": "PUT",
@@ -37,7 +178,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "PAW3.Api.Controllers.TaskApiController",
+    "ContainingType": "AP.Api.Controllers.TaskApiController",
     "Method": "Delete",
     "RelativePath": "api/TaskApi/{id}",
     "HttpMethod": "DELETE",

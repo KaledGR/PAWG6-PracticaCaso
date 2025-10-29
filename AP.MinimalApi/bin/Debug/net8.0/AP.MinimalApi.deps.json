@@ -10,6 +10,7 @@
         "dependencies": {
           "AP.Core": "1.0.0",
           "AP.Data": "1.0.0",
+          "AP.Models": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "8.0.20",
           "Swashbuckle.AspNetCore": "6.6.2"
         },
@@ -696,6 +697,14 @@
             "fileVersion": "1.0.0.0"
           }
         }
+      },
+      "AP.Models/1.0.0": {
+        "runtime": {
+          "AP.Models.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -1152,6 +1161,11 @@
       "sha512": ""
     },
     "AP.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AP.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

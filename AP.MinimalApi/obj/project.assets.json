@@ -1135,6 +1135,16 @@
         "runtime": {
           "bin/placeholder/AP.Data.dll": {}
         }
+      },
+      "AP.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/AP.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AP.Models.dll": {}
+        }
       }
     }
   },
@@ -3293,12 +3303,18 @@
       "type": "project",
       "path": "../AP.Data/AP.Data.csproj",
       "msbuildProject": "../AP.Data/AP.Data.csproj"
+    },
+    "AP.Models/1.0.0": {
+      "type": "project",
+      "path": "../AP.Models/AP.Models.csproj",
+      "msbuildProject": "../AP.Models/AP.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "AP.Core >= 1.0.0",
       "AP.Data >= 1.0.0",
+      "AP.Models >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 8.0.20",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
@@ -3340,6 +3356,9 @@
             },
             "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Data\\AP.Data.csproj": {
               "projectPath": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Data\\AP.Data.csproj"
+            },
+            "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Models\\AP.Models.csproj": {
+              "projectPath": "C:\\Users\\Nacho\\Documents\\Practica 1\\PAWG6-PracticaCaso\\AP.Models\\AP.Models.csproj"
             }
           }
         }

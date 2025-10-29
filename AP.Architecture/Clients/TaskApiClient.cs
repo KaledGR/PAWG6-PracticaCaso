@@ -5,6 +5,10 @@ using System.Text.Json;
 
 namespace PAW3.Mvc.ServiceLocator;
 
+
+/* Me ayude con IA para saber donde ubicar este cliente de API y como estructurarlo mejor */
+
+
 public interface IServiceTaskService
 {
     Task<IEnumerable<T>> GetDataAsync<T>(string name) where T : class;

@@ -12,6 +12,10 @@ C:\Users\Kaled\source\repos\PAWG6CP\AP.Data\obj\Debug\net8.0\refint\AP.Data.dll
 C:\Users\Kaled\source\repos\PAWG6CP\AP.Data\obj\Debug\net8.0\AP.Data.pdb
 C:\Users\Kaled\source\repos\PAWG6CP\AP.Data\obj\Debug\net8.0\AP.Data.genruntimeconfig.cache
 C:\Users\Kaled\source\repos\PAWG6CP\AP.Data\obj\Debug\net8.0\ref\AP.Data.dll
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Data\bin\Debug\net8.0\AP.Data.deps.json
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Data\bin\Debug\net8.0\AP.Data.runtimeconfig.json
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Data\bin\Debug\net8.0\AP.Data.dll
+C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Data\bin\Debug\net8.0\AP.Data.pdb
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Data\obj\Debug\net8.0\AP.Data.csproj.AssemblyReference.cache
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Data\obj\Debug\net8.0\AP.Data.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Data\obj\Debug\net8.0\AP.Data.AssemblyInfoInputs.cache
@@ -21,9 +25,5 @@ C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Data\obj\Debug\net8.0\
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Data\obj\Debug\net8.0\AP.Data.dll
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Data\obj\Debug\net8.0\refint\AP.Data.dll
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Data\obj\Debug\net8.0\AP.Data.pdb
-C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Data\bin\Debug\net8.0\AP.Data.deps.json
-C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Data\bin\Debug\net8.0\AP.Data.runtimeconfig.json
-C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Data\bin\Debug\net8.0\AP.Data.dll
-C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Data\bin\Debug\net8.0\AP.Data.pdb
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Data\obj\Debug\net8.0\AP.Data.genruntimeconfig.cache
 C:\Users\Nacho\Documents\Practica 1\PAWG6-PracticaCaso\AP.Data\obj\Debug\net8.0\ref\AP.Data.dll

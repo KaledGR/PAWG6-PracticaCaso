@@ -1,69 +1,82 @@
-// AP.Mvc/Controllers/TasksController.cs
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using TaskModel = AP.Data.Models.Task;
 using PAW3.Mvc.ServiceLocator;
 using AP.Models.DTOs;
+using AP.Mvc.Helpers;
+using System.Text.Json;
+using AP.Architecture;
 
 namespace AP.Mvc.Controllers
 {
     public class TasksController : Controller
     {
-        private readonly TaskApiClient _apiClient;
+        private readonly IServiceTaskService _apiClient;
         private readonly ILogger<TasksController> _logger;
+        private readonly IRestProvider _restProvider;
+        private const string ApprovalApiUrl = "https://localhost:7068/api/Approval";
 
-        public TasksController(IServiceTaskService apiClient, ILogger<TasksController> logger)
+        public TasksController(
+            IServiceTaskService apiClient,
+            ILogger<TasksController> logger,
+            IRestProvider restProvider)
         {
-            _apiClient = (TaskApiClient?)apiClient;
+            _apiClient = apiClient;
             _logger = logger;
+            _restProvider = restProvider;
         }
 
         // GET: Tasks
         public async Task<IActionResult> Index()
         {
+            // Verificar autenticación
+            if (!SessionHelper.IsAuthenticated(HttpContext.Session))
+            {
+                return RedirectToAction("Login", "Auth");
+            }
+
             try
             {
-                var tasks = await _apiClient.GetDataAsync<TaskDTO>("task");
-                return View(tasks);
+                // ✅ Obtener solo tareas aprobadas o denegadas (no las null)
+                var response = await _restProvider.GetAsync($"{ApprovalApiUrl}/approved-denied", null);
+                var tasks = JsonSerializer.Deserialize<IEnumerable<TaskDTO>>(response,
+                    new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+                // Pasar información del usuario actual a la vista
+                ViewBag.CurrentUser = SessionHelper.GetUser(HttpContext.Session);
+
+                return View(tasks ?? Enumerable.Empty<TaskDTO>());
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error al cargar la lista de tareas");
-                TempData["Error"] = "No se pudieron cargar las tareas. Por favor, intente m�s tarde.";
-                return View(Enumerable.Empty<TaskModel>());
+                TempData["Error"] = "No se pudieron cargar las tareas. Por favor, intente más tarde.";
+                return View(Enumerable.Empty<TaskDTO>());
             }
         }
 
-        // GET: Tasks/Details/5
-        public async Task<IActionResult> Details(int? id)
+        // GET: Tasks/GetTaskData/5
+        [HttpGet]
+        public async Task<IActionResult> GetTaskData(int id)
         {
+            if (!SessionHelper.IsAuthenticated(HttpContext.Session))
+            {
+                return Unauthorized();
+            }
+
             try
             {
-                var task = await _apiClient.GetByIdAsync<TaskDTO>("task", id.Value);
-
+                var task = await _apiClient.GetByIdAsync<TaskDTO>("task", id);
                 if (task == null)
                 {
-                    TempData["Error"] = "Tarea no encontrada.";
-                    return RedirectToAction(nameof(Index));
+                    return NotFound();
                 }
-
-                return View(task);
+                return Json(task);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error al cargar los detalles de la tarea {TaskId}", id);
-                TempData["Error"] = "No se pudieron cargar los detalles de la tarea.";
-                return RedirectToAction(nameof(Index));
+                _logger.LogError(ex, "Error al obtener datos de la tarea {TaskId}", id);
+                return StatusCode(500, "Error al cargar los datos de la tarea");
             }
-        }
-
-        // GET: Tasks/Create
-        public IActionResult Create()
-        {
-            return View(new TaskModel
-            {
-                Status = "Pendiente",
-                CreatedAt = DateTime.Now
-            });
         }
 
         // POST: Tasks/Create
@@ -71,52 +84,43 @@ namespace AP.Mvc.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(TaskModel task)
         {
+            if (!SessionHelper.IsAuthenticated(HttpContext.Session))
+            {
+                return RedirectToAction("Login", "Auth");
+            }
+
             if (!ModelState.IsValid)
-                return View(task);
+                return RedirectToAction("Index");
 
             try
             {
-                task.CreatedAt = DateTime.Now;
+                // ✅ IMPORTANTE: Crear siempre con Approved = null
+                task.Approved = null;
+                task.CreatedAt = DateTime.UtcNow;
+
                 await _apiClient.CreateAsync("task", task);
 
-                TempData["Success"] = "Tarea creada exitosamente.";
+                TempData["Success"] = "Tarea creada exitosamente. Pendiente de aprobación.";
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error al crear la tarea");
-                ModelState.AddModelError("", "No se pudo crear la tarea. Por favor, intente nuevamente.");
-                return View(task);
-            }
-        }
-
-        // GET: Tasks/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            try
-            {
-                var task = await _apiClient.GetByIdAsync<TaskDTO>("task", id.Value);
-                if (task == null)
-                {
-                    TempData["Error"] = "Tarea no encontrada.";
-                    return RedirectToAction(nameof(Index));
-                }
-
-                return View(task);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error al cargar la tarea {TaskId} para editar", id);
-                TempData["Error"] = "No se pudo cargar la tarea para editar.";
+                TempData["Error"] = "No se pudo crear la tarea. Por favor, intente nuevamente.";
                 return RedirectToAction(nameof(Index));
             }
         }
 
-        // POST: Tasks/Edit/5
+        // POST: Tasks/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, TaskModel task)
         {
+            if (!SessionHelper.IsAuthenticated(HttpContext.Session))
+            {
+                return RedirectToAction("Login", "Auth");
+            }
+
             if (id != task.Id)
             {
                 TempData["Error"] = "ID de tarea no coincide.";
@@ -124,7 +128,7 @@ namespace AP.Mvc.Controllers
             }
 
             if (!ModelState.IsValid)
-                return View(task);
+                return RedirectToAction(nameof(Index));
 
             try
             {
@@ -142,61 +146,21 @@ namespace AP.Mvc.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error al actualizar la tarea {TaskId}", id);
-                ModelState.AddModelError("", "No se pudo actualizar la tarea. Por favor, intente nuevamente.");
-                return View(task);
-            }
-        }
-
-        // GET: Tasks/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            try
-            {
-                var task = await _apiClient.GetByIdAsync<TaskDTO>("task", id.Value);
-                if (task == null)
-                {
-                    TempData["Error"] = "Tarea no encontrada.";
-                    return RedirectToAction(nameof(Index));
-                }
-
-                return View(task);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error al cargar la tarea {TaskId} para eliminar", id);
-                TempData["Error"] = "No se pudo cargar la tarea para eliminar.";
+                TempData["Error"] = "No se pudo actualizar la tarea. Por favor, intente nuevamente.";
                 return RedirectToAction(nameof(Index));
             }
         }
 
-        // AP.Mvc/Controllers/TasksController.cs
-
-        // Agregar este m�todo al final de tu TasksController:
-
-        [HttpGet]
-        public async Task<IActionResult> GetTaskData(int id)
-        {
-            try
-            {
-                var task = await _apiClient.GetByIdAsync<TaskDTO>("task", id);
-                if (task == null)
-                {
-                    return NotFound();
-                }
-                return Json(task);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error al obtener datos de la tarea {TaskId}", id);
-                return StatusCode(500, "Error al cargar los datos de la tarea");
-            }
-        }
-
-        // Cambiar el m�todo Delete para que acepte el ID directamente
+        // POST: Tasks/Delete
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
+            if (!SessionHelper.IsAuthenticated(HttpContext.Session))
+            {
+                return RedirectToAction("Login", "Auth");
+            }
+
             try
             {
                 var success = await _apiClient.DeleteAsync("task", id);

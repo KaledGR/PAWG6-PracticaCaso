@@ -10,6 +10,7 @@
         "dependencies": {
           "AP.Core": "1.0.0",
           "AP.Data": "1.0.0",
+          "AP.Models": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "9.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.10",
           "Microsoft.EntityFrameworkCore.Tools": "9.0.10",
@@ -1109,6 +1110,14 @@
             "fileVersion": "1.0.0.0"
           }
         }
+      },
+      "AP.Models/1.0.0": {
+        "runtime": {
+          "AP.Models.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -1719,6 +1728,11 @@
       "sha512": ""
     },
     "AP.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AP.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
